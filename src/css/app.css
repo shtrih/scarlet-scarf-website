@@ -1,0 +1,85 @@
+article {
+	height: 100vh;
+	position: relative;
+	border-bottom: #000000 1px dashed;
+}
+
+article .content {
+	position: absolute;
+	z-index: 10;
+	width: 50%;
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 10px;
+	top: 30%;
+	padding: 10px;
+}
+
+article:nth-child(2n) .content {
+	left: 10%;
+}
+
+article:nth-child(2n+1) .content {
+	right: 10%;
+}
+
+.bg {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: 0;
+}
+
+article:nth-child(1) > .bg {
+	background-image: url('../img/graphics%20archive/хедер.jpg');
+}
+
+article:nth-child(2) > .bg {
+	background-image: url('../img/3.0.jpg');
+}
+
+article:nth-child(3) > .bg {
+	background-image: url('../img/11.jpg');
+}
+/*
+article:nth-child(4) .bg {
+	background-image: url('../img/graphics%20archive/чар%201.jpg');
+}
+*/
+article:nth-child(5) > .bg {
+	background-image: url('../img/graphics%20archive/футер.jpg');
+}
+
+.carousel > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	white-space: nowrap;
+}
+
+.carousel ul > li {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 50%;
+	display: inline-block;
+	position: relative;
+
+}
+
+.carousel ul > li:nth-child(1) > .bg {
+	background-image: url('../img/graphics%20archive/чар%201.jpg');
+}
+.carousel ul > li:nth-child(2) > .bg {
+	background-image: url('../img/graphics%20archive/чар%202.jpg');
+}
+.carousel ul > li:nth-child(3) > .bg {
+	background-image: url('../img/graphics%20archive/чар%203.jpg');
+}
+.carousel ul > li:nth-child(4) > .bg {
+	background-image: url('../img/graphics%20archive/чар%204.jpg');
+}

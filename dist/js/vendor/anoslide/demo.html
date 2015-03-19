@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ultra lightweight responsive carousel for jQuery</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="keywords" content="anoslide, responsive carousel, responsive slider" />
+		<meta name="description" content="Lightweight responsive carousel built on top of jQuery." />
+		<!-- CDN -->
+		<link href="http://www.anowave.com/factory/cdn/import.css" rel="stylesheet" type="text/css" />
+		<link href="http://www.anowave.com/factory/cdn/styles/rainbow/themes/github.css" rel="stylesheet" type="text/css" />
+		<script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+		<!-- /.CDN -->
+		<script type="text/javascript" src="js/jquery.anoslide.js"></script>
+		<style type="text/css">
+			.carousel { position:relative; min-height: 20px; height:auto !important; height: 20px;  background:url(images/loader.gif) center center no-repeat; }
+			.carousel .next,
+			.carousel .prev { display:none; width:56px; height:56px; position:absolute; bottom:20px; left:50%; margin-top:-28px; z-index:9999; cursor:pointer; }
+			.carousel .prev { margin-left:-60px; background:url(images/prev.png) 0 0 no-repeat;  }
+			.carousel .next { margin-right:-60px;  background:url(images/next.png) 0 0 no-repeat; }
+			.carousel li { display:none; }
+			.carousel li img { width:100%; height:auto; }
+			.paging { position:absolute; z-index:9998; }
+			.paging > a { display:block; cursor:pointer; width:40px; height:40px; float:left; background:url(images/dots.png) 0px -40px no-repeat; }
+			.paging > a:hover,
+			.paging > a.current { background:url(images/dots.png) 0px 0px no-repeat;  }
+			.badge { display:block; width:104px; height:104px; background:url(images/badge.png) 0 0 no-repeat; z-index:9000; position:absolute; top:-3px; left:-3px; }
+			img {
+-webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  -o-user-select: none;
+  user-select: none;    
+}
+			/* Figure */
+		</style>
+		<!--[if lt IE 9]>
+		   <script>
+		      document.createElement('header');
+		      document.createElement('nav');
+		      document.createElement('section');
+		      document.createElement('article');
+		      document.createElement('aside');
+		      document.createElement('footer');
+		      document.createElement('figure');
+		   </script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="pin">Anoslide v1.0 - Ultra lightweight responsive jQuery carousel demo</div>
+		<div class="framework"><a href="http://www.anowave.com" target="_blank"></a></div>
+		<div class="wrapper fix">
+			<a class="button" href="http://www.anowave.com/ultra-lightweight-responsive-carousel/"><span><span data-text="Download Anoslide v1.0">Download Anoslide v1.0</span></span></a>
+			<a class="button" href="http://www.anowave.com/ultra-lightweight-responsive-carousel/"><span><span data-text="Documentation">Documentation</span></span></a>
+		</div>
+		<div class="wrapper">
+			<h2>1. Mixed content demo (One visible item)<em>Resize your browser to review responsive effect</em></h2>
+			<div class="carousel">
+				<a class="prev" data-prev-mixed></a>
+				<ul>
+					<li>
+						<figure><img data-src="images/slides/1.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/2.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/3.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/4.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/5.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/6.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/7.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+				</ul>
+				<a class="next" data-next-mixed></a>
+				<a class="badge"></a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$('.carousel ul').anoSlide(
+			{
+				items: 1,
+				speed: 500,
+				prev: 'a.prev[data-prev-mixed]',
+				next: 'a.next[data-next-mixed]',
+				lazy: true
+			})
+		</script>
+		
+		<div class="wrapper wrapper-tabs">
+			<div data-tabs="true">
+                <ul>
+                	<li><a>jQuery code</a></li>
+                    <li><a>HTML</a></li>
+                </ul>
+                <div>
+                <div>
+<pre>
+<code data-language="javascript">
+$('.carousel ul').anoSlide(
+{
+	items: 1,
+	speed: 500,
+	prev: 'a.prev',
+	next: 'a.next',
+	lazy: true,
+	auto: 4000
+})
+</code>
+</pre>
+                	</div>
+                	<div>
+<pre>
+<code data-language="html">
+<div class="carousel">
+	<a class="prev"></a>
+	<ul>
+		<li>Content goes here</li>
+		<li>Content goes here</li>
+		<li>Content goes here</li>
+	</ul>
+	<a class="next"></a>
+</div>
+</code>
+</pre>
+                	</div>
+                	
+                </div>
+            </div>
+		</div>
+				<div class="wrapper">
+			<h2>2. Multiple items<em>Resize your browser to review responsive effect</em></h2>
+			<div class="carousel" data-mixed>
+				<a class="prev" data-prev></a>
+				<ul>
+					<li>
+						<div class="wrap"><figure><img data-src="images/slides/thumbnails/1.jpg" src=data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="" /></figure></div>
+					</li>
+					<li>
+						<div class="wrap"><figure><img data-src="images/slides/thumbnails/2.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+					</li>
+					<li>
+						<div class="wrap"><figure><img data-src="images/slides/thumbnails/3.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+					</li>
+					<li>
+						<div class="wrap"><figure><img data-src="images/slides/thumbnails/4.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+					</li>
+					<li>
+						<div class="wrap"><figure><img data-src="images/slides/thumbnails/5.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+					</li>
+					<li>
+						<div class="wrap"><figure><img data-src="images/slides/thumbnails/6.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+					</li>
+					<li>
+						<div class="wrap"><figure><img data-src="images/slides/thumbnails/7.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+					</li>
+				</ul>
+				<a class="next" data-next></a>
+				<a class="badge"></a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$('.carousel[data-mixed] ul').anoSlide(
+			{
+				items: 5,
+				speed: 500,
+				prev: 'a.prev[data-prev]',
+				next: 'a.next[data-next]',
+				lazy: true,
+				delay: 100
+			})
+		</script>
+		
+		<div class="wrapper wrapper-tabs">
+			<div data-tabs="true">
+                <ul>
+                	 <li><a>jQuery code</a></li>
+                    <li><a>HTML</a></li>
+      
+                </ul>
+                <div>
+                	
+                	<div>
+<pre><code data-language="javascript">
+$('.carousel[data-mixed] ul').anoSlide(
+{
+	items: 5,
+	speed: 500,
+	prev: 'a.prev[data-prev]',
+	next: 'a.next[data-next]',
+	lazy: true,
+	delay: 100
+})
+</code>
+</pre></div>
+                	<div>
+<pre>
+<code data-language="html">
+<div class="carousel" data-mixed>
+	<a class="prev" data-prev></a>
+	<ul>
+		<li>
+			<div class="wrap"><figure><img data-src="images/slides/thumbnails/1.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+		</li>
+		<li>
+			<div class="wrap"><figure><img data-src="images/slides/thumbnails/2.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+		</li>
+		<li>
+			<div class="wrap"><figure><img data-src="images/slides/thumbnails/3.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+		</li>
+		<li>
+			<div class="wrap"><figure><img data-src="images/slides/thumbnails/4.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+		</li>
+		<li>
+			<div class="wrap"><figure><img data-src="images/slides/thumbnails/5.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+		</li>
+		<li>
+			<div class="wrap"><figure><img data-src="images/slides/thumbnails/6.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+		</li>
+		<li>
+			<div class="wrap"><figure><img data-src="images/slides/thumbnails/7.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure></div>
+		</li>
+	</ul>
+	<a class="next" data-next></a>
+</div>
+</code>
+</pre>
+                	</div>
+                </div>
+            </div>
+		</div>
+		<div class="wrapper">
+			<h2>3. Paging<em>Anoslide is designed to provide suitable hooks in the form of callback functions allowing you to easily extend the plugin without updating it's core.</em></h2>
+			<div class="carousel pagination">
+				<a class="prev" data-prev-paging></a>
+				<ul>
+					<li>
+						<figure><img data-src="images/slides/1.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/2.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/3.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/4.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/5.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/6.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+					<li>
+						<figure><img data-src="images/slides/7.jpg" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" /></figure>
+					</li>
+				</ul>
+				<a class="next" data-next-paging></a>
+				<a class="badge"></a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$('.carousel.pagination ul').anoSlide(
+			{
+				items: 1,
+				speed: 500,
+				prev: 'a.prev[data-prev-paging]',
+				next: 'a.next[data-next-paging]',
+				lazy: true,
+				onConstruct: function(instance)
+				{
+					var paging = $('<div/>').addClass('paging fix').css(
+					{
+						position: 'absolute',
+						top: 1,
+						left:50 + '%',
+						width: instance.slides.length * 40,
+						marginLeft: -(instance.slides.length * 40)/2
+					})
+					
+					/* Build paging */
+					for (i = 0, l = instance.slides.length; i < l; i++)
+					{
+						var a = $('<a/>').data('index', i).appendTo(paging).on(
+						{
+							click: function()
+							{
+								instance.stop().go($(this).data('index'));
+							}
+						});
+						
+						if (i == instance.current)
+						{
+							a.addClass('current');
+						}
+					}
+
+					instance.element.parent().append(paging);
+				},
+				onStart: function(ui)
+				{
+					var paging = $('.paging');
+					
+					paging.find('a').eq(ui.instance.current).addClass('current').siblings().removeClass('current');
+				}
+			})
+		</script>
+		
+		<div class="wrapper wrapper-tabs">
+			<div data-tabs="true">
+                <ul>
+                	<li><a>jQuery code</a></li>
+                    <li><a>HTML</a></li>
+                </ul>
+                <div>
+                <div>
+<pre>
+<code data-language="javascript">
+$('.carousel ul').anoSlide(
+{
+	items: 1,
+	speed: 500,
+	prev: 'a.prev[data-prev-paging]',
+	next: 'a.next[data-next-paging]',
+	lazy: true,
+	onConstruct: function(instance)
+	{
+		var paging = $('&lt;div/&gt;').addClass('paging fix').css(
+		{
+			position: 'absolute',
+			top: 1,
+			left:50 + '%',
+			width: instance.slides.length * 40,
+			marginLeft: -(instance.slides.length * 40)/2
+		})
+		
+		/* Build paging */
+		for (i = 0, l = instance.slides.length; i < l; i++)
+		{
+			var a = $('&lt;a/&gt;').data('index', i).appendTo(paging).on(
+			{
+				click: function()
+				{
+					instance.stop().go($(this).data('index'));
+				}
+			});
+			
+			if (i == instance.current)
+			{
+				a.addClass('current');
+			}
+		}
+
+		instance.element.parent().append(paging);
+	},
+	onStart: function(ui)
+	{
+		var paging = $('.paging');
+		
+		paging.find('a').eq(ui.instance.current).addClass('current').siblings().removeClass('current');
+	}
+})
+</code>
+</pre>
+                	</div>
+                	<div>
+<pre>
+<code data-language="html">
+<div class="carousel">
+	<a class="prev"></a>
+	<ul>
+		<li>Content goes here</li>
+		<li>Content goes here</li>
+		<li>Content goes here</li>
+	</ul>
+	<a class="next"></a>
+</div>
+</code>
+</pre>
+                	</div>
+                	
+                </div>
+            </div>
+		</div>
+				<div class="wrapper">
+			<h2>3. Captions example<em>Check out the example below and see how a captions can be added without changing anoSlide's code at all. It's really fun.</em></h2>
+			<div class="carousel captions">
+				<a class="prev" data-prev-caption></a>
+				<ul>
+					<li data-caption="Adding captions is really easy">
+						<figure><img data-src="images/slides/1.jpg" src="" /></figure>
+					</li>
+					<li data-caption="anoSlide's callback functions can be used for adding Captions">
+						<figure><img data-src="images/slides/2.jpg" src="" /></figure>
+					</li>
+					<li data-caption="<span style='color:#00f0ff'>HTML - No problem</span><br /><br />It's really up to You to decide whether to use HTML or not.">
+						<figure><img data-src="images/slides/3.jpg" src="" /></figure>
+					</li>
+				</ul>
+				<a class="next" data-next-caption></a>
+				<a class="badge"></a>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			$('.carousel.captions ul').anoSlide(
+			{
+				items: 1,
+				speed: 500,
+				prev: 'a.prev[data-prev-caption]',
+				next: 'a.next[data-next-caption]',
+				lazy: true,
+				onStart: function(ui)
+				{
+					ui.slide.element.find('.caption').remove();
+				},
+				onEnd: function(ui)
+				{
+					var content = ui.slide.element.data('caption');
+					
+					var caption = $('<div/>').addClass('caption').css(
+					{
+						position: 			'absolute', 
+						background: 		'rgb(0,0,0)',
+						color: 				'rgb(255,255,255)',
+						textShadow: 		'rgb(0,0,0) -1px -1px',
+						opacity: 			0.5,
+						top:				-100,
+						left:				50,
+						padding:			20,
+						webkitBorderRadius: 5,
+						mozBorderRadius: 	5,
+						borderRadius: 		5
+					}).html(content);
+					
+					caption.appendTo(ui.slide.element).animate(
+					{
+						top:50
+					});
+				}
+			})
+		</script>
+		
+		<div class="wrapper wrapper-tabs">
+			<div data-tabs="true">
+                <ul>
+                	<li><a>jQuery code</a></li>
+                    <li><a>HTML</a></li>
+                </ul>
+                <div>
+                <div>
+<pre>
+<code data-language="javascript">
+$('.carousel.captions ul').anoSlide(
+{
+	items: 1,
+	speed: 500,
+	prev: 'a.prev[data-prev-caption]',
+	next: 'a.next[data-next-caption]',
+	lazy: true,
+	onStart: function(ui)
+	{
+		/* Remove existing caption in slide */
+		ui.slide.element.find('.caption').remove();
+	},
+	onEnd: function(ui)
+	{
+		/* Get caption content */
+		var content = ui.slide.element.data('caption');
+		
+		/* Create a caption wrap element */
+		var caption = $('&lt;div/&gt;').addClass('caption').css(
+		{
+			position: 'absolute', 
+			background: 'rgb(0,0,0)',
+			color: 'rgb(255,255,255)',
+			textShadow: 'rgb(0,0,0) -1px -1px',
+			opacity: 0.5,
+			top: -100,
+			left: 50,
+			padding: 20,
+			webkitBorderRadius: 5,
+			mozBorderRadius: 5,
+			borderRadius: 5
+		}).html(content);
+		
+		/* Append caption to slide and animate it. Animation is really up to you. */
+		caption.appendTo(ui.slide.element).animate(
+		{
+			top:50
+		});
+	}
+})
+</code>
+</pre>
+                	</div>
+                	<div>
+<pre>
+<code data-language="html">
+&lt;div class="carousel captions"&gt;
+	&lt;a class="prev" data-prev-caption&gt;&lt;/a&gt;
+	&lt;ul&gt;
+		&lt;li data-caption="Adding captions is really easy"&gt;
+			&lt;figure&gt;&lt;img data-src="images/slides/1.jpg" src="" /&gt;&lt;/figure&gt;
+		&lt;/li&gt;
+		&lt;li data-caption="anoSlide's callback functions can be used for adding Captions"&gt;
+			&lt;figure&gt;&lt;img data-src="images/slides/2.jpg" src="" /&gt;&lt;/figure&gt;
+		&lt;/li&gt;
+		&lt;li data-caption="&lt;span style='color:#00f0ff'&gt;HTML - No problem&lt;/span&gt;&lt;br /&gt;&lt;br /&gt;It's really up to You to decide whether to use HTML or not."&gt;
+			&lt;figure&gt;&lt;img data-src="images/slides/3.jpg" src="" /&gt;&lt;/figure&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;figure&gt;&lt;img data-src="images/slides/4.jpg" src="" /&gt;&lt;/figure&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;figure&gt;&lt;img data-src="images/slides/5.jpg" src="" /&gt;&lt;/figure&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;figure&gt;&lt;img data-src="images/slides/6.jpg" src="" /&gt;&lt;/figure&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;figure&gt;&lt;img data-src="images/slides/7.jpg" src="" /&gt;&lt;/figure&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;a class="next" data-next-caption&gt;&lt;/a&gt;
+	&lt;a class="badge"&gt;&lt;/a&gt;
+&lt;/div&gt;
+</code>
+</pre>
+                	</div>
+                	
+                </div>
+            </div>
+		</div>
+		<script src="http://www.anowave.com/factory/cdn/scripts/tabs.js"></script>
+		<script src="http://www.anowave.com/factory/cdn/scripts/demo.js"></script>
+		<script src="http://www.anowave.com/factory/cdn/scripts/rainbow/rainbow.js"></script>
+		<script src="http://www.anowave.com/factory/cdn/scripts/rainbow/language/generic.js"></script>
+		<script src="http://www.anowave.com/factory/cdn/scripts/rainbow/language/javascript.js"></script>
+		<script src="http://www.anowave.com/factory/cdn/scripts/rainbow/language/css.js"></script>
+		<script src="http://www.anowave.com/factory/cdn/scripts/rainbow/language/html.js"></script>
+		<script src="http://www.anowave.com/factory/cdn/scripts/rainbow/language/php.js"></script>
+		<script type="text/javascript">
+			Demo.bind()
+		</script>
+	</body>
+</html>

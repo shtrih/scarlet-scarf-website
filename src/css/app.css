@@ -7,19 +7,20 @@ article {
 article .content {
 	position: absolute;
 	z-index: 10;
-	width: 50%;
-	background: rgba(255, 255, 255, 0.2);
+	width: 50vw;
+	background: rgba(0, 0, 0, 0.3);
 	border-radius: 10px;
-	top: 30%;
+	top: 30vh;
 	padding: 10px;
+	color: #ffc;
 }
 
 article:nth-child(2n) .content {
-	left: 10%;
+	left: 10vw;
 }
 
 article:nth-child(2n+1) .content {
-	right: 10%;
+	right: 10vw;
 }
 
 .bg {
@@ -29,7 +30,8 @@ article:nth-child(2n+1) .content {
 	left: 0;
 	position: absolute;
 	background-repeat: no-repeat;
-	background-position: center center;
+	background-position: top center;
+	background-size: cover;
 	z-index: 0;
 }
 
@@ -57,18 +59,11 @@ article:nth-child(5) > .bg {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	height: 100%;
-	white-space: nowrap;
 }
 
 .carousel ul > li {
 	margin: 0;
 	padding: 0;
-	height: 100%;
-	width: 50%;
-	display: inline-block;
-	position: relative;
-
 }
 
 .carousel ul > li:nth-child(1) > .bg {
@@ -82,4 +77,59 @@ article:nth-child(5) > .bg {
 }
 .carousel ul > li:nth-child(4) > .bg {
 	background-image: url('../img/graphics%20archive/чар%204.jpg');
+}
+
+.carousel .next,
+.carousel .prev {
+	display: none;
+	width: 56px;
+	height: 56px;
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-top: -28px;
+	z-index: 9999;
+	cursor: pointer;
+}
+
+.carousel .prev {
+	margin-left: -60px;
+	background: url(../js/vendor/anoslide/images/prev.png) 0 0 no-repeat;
+}
+
+.carousel .next {
+	margin-right: -60px;
+	background: url(../js/vendor/anoslide/images/next.png) 0 0 no-repeat;
+}
+
+.carousel {
+	position: relative;
+	min-height: 20px;
+	height: 100vh !important;
+	background: url(../js/vendor/anoslide/images/loader.gif) center center no-repeat;
+}
+
+.carousel > ul > li > .bg {
+	height: 100vh;
+	position: relative;
+	background-attachment: fixed;
+}
+
+.carousel .paging {
+	position: absolute;
+	z-index: 9998;
+}
+
+.carousel .paging > a {
+	display: block;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	float: left;
+	background: url(../js/vendor/anoslide/images/dots.png) 0 -40px no-repeat;
+}
+
+.carousel .paging > a:hover,
+.carousel .paging > a.current {
+	background: url(../js/vendor/anoslide/images/dots.png) 0 0 no-repeat;
 }

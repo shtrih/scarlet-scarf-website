@@ -56,7 +56,7 @@
 			}).children().css(
 			{
 				position:	'absolute',
-				cursor: 	'pointer',
+				//cursor: 	'pointer',
 				overflow: 	'hidden',
 				display:	'block'
 			}).each(delegate(this, function(index, slide)

@@ -17,7 +17,8 @@
     "normalize.css": "3.0.2",
     "run-sequence": "^1.0.2",
     "jquery.scrollto": "~2.1.0",
-    "jquery.localscroll": "~1.4.0"
+    "jquery.localscroll": "~1.4.0",
+    "jquery.stellar": "git://github.com/markdalgleish/stellar.js#v0.6.2"
   },
   "engines": {
     "node": ">=0.10.0"

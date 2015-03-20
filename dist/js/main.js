@@ -3,6 +3,12 @@ $(function () {
         hash: true
     });
 
+    $.stellar({
+        // horizontalOffset: 40,
+        // verticalOffset: 0
+        hideDistantElements: true
+    });
+
     $('.carousel ul').anoSlide({
         items: 1,
         speed: 1000,

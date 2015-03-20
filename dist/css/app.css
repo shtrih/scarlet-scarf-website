@@ -37,6 +37,7 @@ article .logo {
 
 article .logo img {
 	width: 60vw;
+	max-width: 768px;
 }
 
 article .content {
@@ -65,8 +66,9 @@ article:nth-child(2n+1) .content {
 	left: 0;
 	position: absolute;
 	background-repeat: no-repeat;
-	background-position: center top;
+	background-position: 50% top;
 	background-size: cover;
+	background-attachment: fixed;
 	z-index: 0;
 }
 

@@ -9,15 +9,21 @@ article .nav-next {
 	display: block;
 	position: absolute;
 	bottom: 20px;
-	left: calc(50% - 50px);
-	width: 100px;
+	left: calc(50% - 25px);
+	width: 50px;
 	height: 50px;
-	background: rgba(0, 0, 0, 0.3);
+	background: url('../img/adown.png') no-repeat center center;
 }
 
 article .nav-prev {
 	bottom: auto;
 	top: 20px;
+	transform: rotate(180deg);
+}
+
+article .logo {
+	position: relative;
+	text-align: center;
 }
 
 article .content {
@@ -39,6 +45,12 @@ article:nth-child(2n+1) .content {
 	right: 10vw;
 }
 
+footer {
+	position: relative;
+	height: 300px;
+	background: url('../img/graphics%20archive/футер.jpg') no-repeat left top;
+}
+
 .bg {
 	height: 100%;
 	width: 100%;
@@ -52,24 +64,17 @@ article:nth-child(2n+1) .content {
 }
 
 article:nth-child(1) > .bg {
-	background-image: url('../img/graphics%20archive/хедер.jpg');
+	background-image: url('../img/header.png');
 }
 
 article:nth-child(2) > .bg {
 	background-image: url('../img/graphics%20archive/секция%201.jpg');
 }
 
-article:nth-child(3) > .bg {
+article:nth-child(4) > .bg {
 	background-image: url('../img/graphics%20archive/секция%202.jpg');
 }
-/*
-article:nth-child(4) .bg {
-	background-image: url('../img/graphics%20archive/чар%201.jpg');
-}
-*/
-article:nth-child(5) > .bg {
-	background-image: url('../img/graphics%20archive/футер.jpg');
-}
+
 
 .carousel > ul {
 	list-style: none;

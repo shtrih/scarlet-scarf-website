@@ -1,5 +1,6 @@
 body a {
 	color: #ffc;
+	font-family: Georgia, sans-serif;
 }
 
 body a:hover {
@@ -132,7 +133,7 @@ article:nth-child(4) > .bg {
 
 .carousel .next {
 	margin-right: -60px;
-	background: url(../js/vendor/anoslide/images/next.png) 0 0 no-repeat;
+	background: url(../img/cright.png) 0 0 no-repeat;
 }
 
 .carousel {

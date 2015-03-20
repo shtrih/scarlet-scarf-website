@@ -56,11 +56,11 @@ article:nth-child(1) > .bg {
 }
 
 article:nth-child(2) > .bg {
-	background-image: url('../img/3.0.jpg');
+	background-image: url('../img/graphics%20archive/секция%201.jpg');
 }
 
 article:nth-child(3) > .bg {
-	background-image: url('../img/11.jpg');
+	background-image: url('../img/graphics%20archive/секция%202.jpg');
 }
 /*
 article:nth-child(4) .bg {

@@ -26,6 +26,10 @@ article .logo {
 	text-align: center;
 }
 
+article .logo img {
+	width: 60vw;
+}
+
 article .content {
 	position: absolute;
 	z-index: 10;

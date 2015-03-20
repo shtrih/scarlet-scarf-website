@@ -1,15 +1,11 @@
 $(function () {
-    $('article:not(.carousel) .bg').parallax({
-        start: 'elstart',
-        stop: 'elend',
-        speed: 0.1,
-        axis: 'y',
-        threshold: 100
+    $.localScroll({
+        hash: true
     });
 
     $('.carousel ul').anoSlide({
         items: 1,
-        speed: 900,
+        speed: 1000,
         prev: 'a.prev',
         next: 'a.next',
         // lazy: true,

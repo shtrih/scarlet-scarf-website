@@ -1,7 +1,23 @@
 article {
 	height: 100vh;
 	position: relative;
-	border-bottom: #000000 1px dashed;
+	/*border-bottom: #000000 1px dashed;*/
+}
+
+article .nav-prev,
+article .nav-next {
+	display: block;
+	position: absolute;
+	bottom: 20px;
+	left: calc(50% - 50px);
+	width: 100px;
+	height: 50px;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+article .nav-prev {
+	bottom: auto;
+	top: 20px;
 }
 
 article .content {
@@ -30,7 +46,7 @@ article:nth-child(2n+1) .content {
 	left: 0;
 	position: absolute;
 	background-repeat: no-repeat;
-	background-position: top center;
+	background-position: center top;
 	background-size: cover;
 	z-index: 0;
 }
@@ -132,4 +148,27 @@ article:nth-child(5) > .bg {
 .carousel .paging > a:hover,
 .carousel .paging > a.current {
 	background: url(../js/vendor/anoslide/images/dots.png) 0 0 no-repeat;
+}
+
+nav {
+	width: 100%;
+	position: absolute;
+	top: 48%;
+}
+
+nav ul {
+	width: 100%;
+	text-align: center;
+}
+
+nav li {
+	display: inline-block;
+}
+
+nav li a {
+	display: block;
+	padding: 4px;
+	margin: 0 10px;
+	color: #ffc;
+	font-size: 2em;
 }

@@ -1,8 +1,0 @@
-{
-  "JAVASCRIPT" : {
-    "DIST_DIR" : "./",
-    "jquery.parallax" : [
-      "src/jquery.parallax.js"
-    ]
-  }
-}

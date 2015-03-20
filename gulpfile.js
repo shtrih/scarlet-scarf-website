@@ -66,6 +66,7 @@ gulp.task('copy', [
     'copy:.htaccess',
     'copy:index.html',
     'copy:jquery',
+    'copy:other-vendors',
     'copy:main.css',
     'copy:misc',
     'copy:normalize'
@@ -88,6 +89,16 @@ gulp.task('copy:jquery', function () {
     return gulp.src(['node_modules/jquery/dist/jquery.min.js'])
                .pipe(plugins.rename('jquery-' + pkg.devDependencies.jquery + '.min.js'))
                .pipe(gulp.dest(dirs.dist + '/js/vendor'));
+});
+
+gulp.task('copy:other-vendors', function () {
+    return gulp.src([
+            'node_modules/jquery.scrollto/jquery.scrollTo.min.js',
+            'node_modules/jquery.localscroll/jquery.localScroll.min.js',
+            'node_modules/jquery.stellar/jquery.stellar.js'
+        ])
+        .pipe(gulp.dest(dirs.dist + '/js/vendor'))
+    ;
 });
 
 gulp.task('copy:main.css', function () {

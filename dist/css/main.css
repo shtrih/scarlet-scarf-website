@@ -187,6 +187,12 @@ textarea {
     clear: both;
 }
 
+ul.unstyled {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.

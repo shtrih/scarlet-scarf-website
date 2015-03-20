@@ -1,3 +1,11 @@
+body a {
+	color: #ffc;
+}
+
+body a:hover {
+	color: #ffa034;
+}
+
 article {
 	height: 100vh;
 	position: relative;
@@ -24,6 +32,7 @@ article .nav-prev {
 article .logo {
 	position: relative;
 	text-align: center;
+	padding-top: 5%;
 }
 
 article .logo img {
@@ -47,12 +56,6 @@ article:nth-child(2n) .content {
 
 article:nth-child(2n+1) .content {
 	right: 10vw;
-}
-
-footer {
-	position: relative;
-	height: 300px;
-	background: url('../img/graphics%20archive/футер.jpg') no-repeat left top;
 }
 
 .bg {
@@ -79,6 +82,9 @@ article:nth-child(4) > .bg {
 	background-image: url('../img/graphics%20archive/секция%202.jpg');
 }
 
+/**
+ * Carousel
+ */
 
 .carousel > ul {
 	list-style: none;
@@ -119,7 +125,7 @@ article:nth-child(4) > .bg {
 
 .carousel .prev {
 	margin-left: -60px;
-	background: url(../js/vendor/anoslide/images/prev.png) 0 0 no-repeat;
+	background: url(../img/cleft.png) 0 0 no-repeat;
 }
 
 .carousel .next {
@@ -159,10 +165,12 @@ article:nth-child(4) > .bg {
 	background: url(../js/vendor/anoslide/images/dots.png) 0 0 no-repeat;
 }
 
+/**
+ * End Carousel
+ */
+
 nav {
-	width: 100%;
-	position: absolute;
-	top: 48%;
+	position: relative;
 }
 
 nav ul {
@@ -178,6 +186,11 @@ nav li a {
 	display: block;
 	padding: 4px;
 	margin: 0 10px;
-	color: #ffc;
 	font-size: 2em;
+}
+
+footer {
+	position: relative;
+	height: 300px;
+	background: url('../img/graphics%20archive/футер.jpg') no-repeat left top;
 }

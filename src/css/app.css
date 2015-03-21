@@ -1,10 +1,32 @@
+@font-face {
+	font-family: 'magic_cards_cyrillicregular';
+	src: url('../fonts/mc_rus-webfont.eot');
+	src: url('../fonts/mc_rus-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/mc_rus-webfont.woff') format('woff'),
+	url('../fonts/mc_rus-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: magic_cards_cyrillicregular, Georgia, sans-serif;
+	letter-spacing: 1px;
+	text-shadow: 1px 1px black;
+	color: #ffc;
+	background: #333;
+}
+
 body a {
 	color: #ffc;
-	font-family: Georgia, sans-serif;
+	text-decoration: none;
 }
 
 body a:hover {
 	color: #ffa034;
+}
+
+p {
+	font-size: 1.3em;
 }
 
 article {
@@ -49,7 +71,6 @@ article .content {
 	border-radius: 10px;
 	top: 30vh;
 	padding: 10px;
-	color: #ffc;
 }
 
 article:nth-child(2n) .content {
@@ -196,4 +217,6 @@ footer {
 	position: relative;
 	height: 300px;
 	background: url('../img/graphics%20archive/футер.jpg') no-repeat left top;
+	border-top: 1px transparent solid;
+	padding: 10px 40px;
 }

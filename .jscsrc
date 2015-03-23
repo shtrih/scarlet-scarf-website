@@ -5,7 +5,7 @@
     ],
     "disallowMixedSpacesAndTabs": true,
     "disallowMultipleLineStrings": true,
-    "disallowMultipleVarDecl": true,
+    // "disallowMultipleVarDecl": true,
     "disallowSpaceAfterPrefixUnaryOperators": [
         "!",
         "+",

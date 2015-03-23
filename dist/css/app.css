@@ -74,11 +74,11 @@ article .content {
 }
 
 article:nth-child(2n) .content {
-	left: 10vw;
+	right: 10vw;
 }
 
 article:nth-child(2n+1) .content {
-	right: 10vw;
+	left: 10vw;
 }
 
 .bg {
@@ -106,6 +106,14 @@ article:nth-child(4) > .bg {
 	background-image: url('../img/graphics%20archive/секция%202.jpg');
 }
 
+article:nth-child(2) {
+	height: 1550px;
+}
+
+article:nth-child(4) {
+	height: 1280px;
+}
+
 /**
  * Carousel
  */
@@ -121,17 +129,28 @@ article:nth-child(4) > .bg {
 	padding: 0;
 }
 
+.carousel ul > li .bg {
+	background-repeat: no-repeat, no-repeat;
+	background-position: 50% top, 70% bottom;
+	background-size: cover, auto;
+	background-attachment: fixed;
+}
+
 .carousel ul > li:nth-child(1) > .bg {
-	background-image: url('../img/graphics%20archive/чар%201.jpg');
+	background: url('../img/characters/sil%20sprite.png'),
+				url('../img/characters/sil%20background.png');
 }
 .carousel ul > li:nth-child(2) > .bg {
-	background-image: url('../img/graphics%20archive/чар%202.jpg');
+	background-image: url('../img/characters/anga%20sprite.png'),
+						url('../img/characters/anga%20background.png');
 }
 .carousel ul > li:nth-child(3) > .bg {
-	background-image: url('../img/graphics%20archive/чар%203.jpg');
+	background-image: url('../img/characters/rihard%20sprite.png'),
+						url('../img/characters/rihard%20background.png');
 }
 .carousel ul > li:nth-child(4) > .bg {
-	background-image: url('../img/graphics%20archive/чар%204.jpg');
+	background-image: url('../img/characters/sil%20sprite.png'),
+						url('../img/characters/waiger%20background.png');
 }
 
 .carousel .next,

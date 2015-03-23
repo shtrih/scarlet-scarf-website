@@ -41,23 +41,6 @@ article {
 	/*border-bottom: #000000 1px dashed;*/
 }
 
-article .nav-prev,
-article .nav-next {
-	display: none;
-	position: absolute;
-	bottom: 20px;
-	left: calc(50% - 25px);
-	width: 50px;
-	height: 50px;
-	background: url('../img/adown.png') no-repeat center center;
-}
-
-article .nav-prev {
-	bottom: auto;
-	top: 20px;
-	transform: rotate(180deg);
-}
-
 article .logo {
 	position: relative;
 	text-align: center;
@@ -75,7 +58,7 @@ article .content {
 	border-radius: 10px;
 	top: 30vh;
 	margin: 0 10vw;
-	padding: 10px;
+	padding: 10px 35px;
 }
 
 .bg {
@@ -453,9 +436,15 @@ nav.menu li a {
 footer {
 	position: relative;
 	height: 300px;
-	background: url('../img/graphics%20archive/футер.jpg') no-repeat left top;
+	background: url('../img/footer.jpg') no-repeat left top;
 	border-top: 1px transparent solid;
 	padding: 10px 40px;
+}
+
+footer .content {
+	width: 40%;
+	float: right;
+	margin-right: 4%;
 }
 
 #downloads ul {
@@ -467,6 +456,7 @@ footer {
 	display: inline-block;
 	width: 24%;
 	text-align: center;
+	vertical-align: text-top;
 }
 
 #downloads .content {

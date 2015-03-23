@@ -30,6 +30,11 @@ p {
 	text-indent: 1em;
 }
 
+p:first-letter {
+	font-size: 2em;
+	color: #ff0005;
+}
+
 article {
 	height: 100vh;
 	position: relative;

@@ -27,6 +27,12 @@ body a:hover {
 
 p {
 	font-size: 1.3em;
+	text-indent: 1em;
+}
+
+p:first-letter {
+	font-size: 2em;
+	color: #ff0005;
 }
 
 article {

@@ -64,21 +64,12 @@ article .logo img {
 }
 
 article .content {
-	position: absolute;
-	z-index: 10;
-	width: 50vw;
+	position: relative;
 	background: rgba(0, 0, 0, 0.3);
 	border-radius: 10px;
 	top: 30vh;
+	margin: 0 10vw;
 	padding: 10px;
-}
-
-article:nth-child(2n) .content {
-	right: 10vw;
-}
-
-article:nth-child(2n+1) .content {
-	left: 10vw;
 }
 
 .bg {
@@ -429,6 +420,10 @@ article:nth-of-type(4) {
 	}
 }
 
+/**
+ *
+ */
+
 nav.menu {
 	position: relative;
 }
@@ -457,3 +452,49 @@ footer {
 	padding: 10px 40px;
 }
 
+#downloads ul {
+	text-align: center;
+	width: 100%;
+}
+
+#downloads li {
+	display: inline-block;
+	width: 24%;
+	text-align: center;
+}
+
+#downloads .content {
+
+}
+
+#downloads .icon {
+	display: block;
+	width: 100%;
+	height: 128px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	margin-bottom: 10px;
+}
+
+#downloads .icon.windows {
+	background-image: url('../img/icons/windows.png');
+}
+
+#downloads .icon.linux {
+	background-image: url('../img/icons/linux.png');
+}
+
+#downloads .icon.android {
+	background-image: url('../img/icons/android.png');
+}
+
+#downloads .icon.mac {
+	background-image: url('../img/icons/mac.png');
+}
+
+#characters .content {
+	position: absolute;
+	z-index: 10;
+	width: 50vw;
+	top: 30vh;
+}

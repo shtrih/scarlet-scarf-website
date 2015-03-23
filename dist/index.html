@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/app.css?1427111348153">
+        <link rel="stylesheet" href="css/app.css?1427114340951">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -50,7 +50,7 @@
 		</nav>
 		<a class="cd-nav-trigger cd-img-replace">Открыть навигацию<span></span></a>
 
-        <article>
+        <article id="header">
             <div class="bg"></div>
             <a name="header"></a>
             <!--<a href="#brief" class="nav-next" title="Вниз"></a>-->
@@ -69,7 +69,7 @@
             </nav>
         </article>
 
-        <article>
+        <article id="brief">
             <div class="bg"></div>
             <a name="brief"></a>
             <a href="#header" class="nav-prev" title="Вверх"></a>
@@ -85,7 +85,7 @@
             </div>
         </article>
 
-        <article class="carousel">
+        <article id="characters" class="carousel">
             <a name="characters"></a>
             <a href="#brief" class="nav-prev" title="Вверх"></a>
             <a href="#downloads" class="nav-next" title="Вниз"></a>
@@ -146,7 +146,7 @@
             <a class="next" data-next></a>
         </article>
 
-        <article>
+        <article id="downloads">
             <div class="bg"></div>
             <a name="downloads"></a>
             <a href="#characters" class="nav-prev" title="Вверх"></a>
@@ -155,20 +155,37 @@
             <div class="content">
                 <h1>Скачать</h1>
                 <div class="text">
-                    <ul>
-                        <li><a href="#">Windows</a></li>
-                        <li><a href="#">Linux</a></li>
-                        <li><a href="#">Mac</a></li>
-                    </ul>
+					<p>Скачать бесплатно, без смс. Да, именно так. Этот текст, конечно, будет выглядет по-разному, в зависимости от разрешения экрана пользователя.</p>
                 </div>
+				<ul class="unstyled">
+					<li>
+						<a class="icon windows" href="#"></a>
+						<a class="" href="#">Windows (42.3 Мб)</a>
+					</li>
+					<li>
+						<a class="icon android" href="#"></a>
+						<a class="" href="#">Android (42.14 Мб)</a>
+					</li>
+					<li>
+						<a class="icon linux" href="#"></a>
+						<a class="" href="#">Linux (42.15 Мб)</a>
+					</li>
+					<li>
+						<a class="icon mac" href="#"></a>
+						<a class="" href="#">Mac (42.92 Мб)</a>
+					</li>
+				</ul>
             </div>
-        </article><footer>
+        </article>
+
+		<footer>
             <a name="footer"></a>
             <a href="#downloads" class="nav-prev" title="Вверх"></a>
 
             <div class="content">
                 <div class="text">
                     <p>AwesomeStudio, 2015</p>
+                    <p>Отдельная благодарность: nick, other-nick89</p>
                 </div>
             </div>
         </footer>
@@ -182,7 +199,7 @@
         <script src="js/vendor/jquery.localScroll.min.js"></script>
         <script src="js/vendor/jquery.stellar.js"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js?1427111348153"></script>
+        <script src="js/main.js?1427114340951"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

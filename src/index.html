@@ -20,37 +20,62 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-        <article data-stellar-offset-parent="true">
+		<nav id="cd-vertical-nav">
+			<ul class="unstyled">
+				<li>
+					<a href="#header" data-number="1">
+						<span class="cd-dot"></span>
+						<span class="cd-label">Заглавная</span>
+					</a>
+				</li>
+				<li>
+					<a href="#brief" data-number="2">
+						<span class="cd-dot"></span>
+						<span class="cd-label">Сюжет</span>
+					</a>
+				</li>
+				<li>
+					<a href="#characters" data-number="3">
+						<span class="cd-dot"></span>
+						<span class="cd-label">Персонажи</span>
+					</a>
+				</li>
+				<li>
+					<a href="#downloads" data-number="4">
+						<span class="cd-dot"></span>
+						<span class="cd-label">Скачать</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+		<a class="cd-nav-trigger cd-img-replace">Открыть навигацию<span></span></a>
+
+        <article id="header">
             <div class="bg"
-				 data-stellar-background-ratio="0.2"
-				 data-stellar-offset-parent="true"></div>
-			<a name="header"></a>
-			<!--<a href="#brief" class="nav-next" title="Вниз"></a>-->
+                 data-stellar-background-ratio="0.2"></div>
+            <a name="header"></a>
+            <!--<a href="#brief" class="nav-next" title="Вниз"></a>-->
 
-			<div class="logo"
-				 data-stellar-ratio="0.5"
-				 data-stellar-offset-parent="true">
-				<img src="img/scarlet-scarf.png" />
-			</div>
+            <div class="logo">
+                <img src="img/scarlet-scarf.png" />
+            </div>
 
-			<nav
-				data-stellar-ratio="0.1">
-				<ul class="unstyled">
-					<li><a href="#brief">Сюжет</a></li>
-					<li><a href="#characters">Персонажи</a></li>
-					<li><a href="#downloads">Скачать</a></li>
-					<!--<li><a href="#footer">О команде</a></li>-->
-				</ul>
-			</nav>
+            <nav class="menu">
+                <ul class="unstyled">
+                    <li><a href="#brief">Сюжет</a></li>
+                    <li><a href="#characters">Персонажи</a></li>
+                    <li><a href="#downloads">Скачать</a></li>
+                    <!--<li><a href="#footer">О команде</a></li>-->
+                </ul>
+            </nav>
         </article>
 
-        <article>
+        <article id="brief">
             <div class="bg"
-				 data-stellar-background-ratio="2"
-				 data-stellar-offset-parent="true"></div>
-			<a name="brief"></a>
-			<a href="#header" class="nav-prev" title="Вверх"></a>
-			<a href="#characters" class="nav-next" title="Вниз"></a>
+                 data-stellar-background-ratio="2"></div>
+            <a name="brief"></a>
+            <a href="#header" class="nav-prev" title="Вверх"></a>
+            <a href="#characters" class="nav-next" title="Вниз"></a>
 
             <div class="content">
                 <h1>Сюжет</h1>
@@ -62,20 +87,23 @@
             </div>
         </article>
 
-        <article class="carousel">
-			<a name="characters"></a>
-			<a href="#brief" class="nav-prev" title="Вверх"></a>
-			<a href="#downloads" class="nav-next" title="Вниз"></a>
+        <article id="characters" class="carousel">
+            <a name="characters"></a>
+            <a href="#brief" class="nav-prev" title="Вверх"></a>
+            <a href="#downloads" class="nav-next" title="Вниз"></a>
 
-			<a class="prev"></a>
+            <a class="prev"></a>
             <ul>
                 <li>
                     <div class="bg"></div>
 
                     <div class="content">
-                        <h1>Персонаж</h1>
+                        <h1>Силь</h1>
                         <div class="text">
-                            <p>Наш герой — брат-санатор Рихард Мёрдок, который вместе с коллегами силится остановить неведомую заразу.</p>
+                            <p>Лукавая и насмешливая бродяжка, играющая с листьями в карантинном квартале. Кажется, она
+                                знает больше, чем говорит – быть может, видела то, что не стоило видеть? Мало кому есть дело
+                                до сирот на улочках Ройштадта…
+                            </p>
                         </div>
                     </div>
                 </li>
@@ -83,9 +111,12 @@
                     <div class="bg"></div>
 
                     <div class="content">
-                        <h1>Персонаж</h1>
+                        <h1>Анга</h1>
                         <div class="text">
-                            <p>Наш герой — брат-санатор Рихард Мёрдок, который вместе с коллегами силится остановить неведомую заразу.</p>
+                            <p>Тень Рихарда Мердока, пленница и хозяйка его снов. В разыгравшейся на улицах города трагедии
+                                у нее есть свой интерес: может быть на этот раз брат-санатор поддастся ее речам и приоткроет
+                                двери темницы пошире?
+                            </p>
                         </div>
                     </div>
                 </li>
@@ -93,9 +124,11 @@
                     <div class="bg"></div>
 
                     <div class="content">
-                        <h1>Персонаж</h1>
+                        <h1>Рихард</h1>
                         <div class="text">
-                            <p>Наш герой — брат-санатор Рихард Мёрдок, который вместе с коллегами силится остановить неведомую заразу.</p>
+                            <p>Рихард Мердок, санатор Ройштадского харцбурга, один из Братства Эльма. Он и его коллеги ищут
+                                источник загадочной эпидемии и средства пресечь ее в зародыше. Впрочем, до сих пор их усилия
+                                не принесли плодов. Впрочем сдаваться они не собираются – иначе весь город обречен.</p>
                         </div>
                     </div>
                 </li>
@@ -103,42 +136,63 @@
                     <div class="bg"></div>
 
                     <div class="content">
-                        <h1>Персонаж</h1>
+                        <h1>Вайгер</h1>
                         <div class="text">
-                            <p>Наш герой — брат-санатор Рихард Мёрдок, который вместе с коллегами силится остановить неведомую заразу.</p>
+                            <p>Вайгер Вальдт, экзорцист Ройштадского харцбурга, один из Братства Эльма. Старый приятель
+                                Рихарда, знающий толк в противостоянии приходящим из-за граней бытия сущностям. Он, как и
+                                Мердок, силится отыскать способ победить неведомый мор, но пока тщетно. </p>
                         </div>
                     </div>
                 </li>
             </ul>
-			<a class="next" data-next></a>
+            <a class="next" data-next></a>
         </article>
 
-		<article>
-			<div class="bg"
-				 data-stellar-background-ratio="2"></div>
-			<a name="downloads"></a>
-			<a href="#characters" class="nav-prev" title="Вверх"></a>
-			<a href="#footer" class="nav-next" title="Вниз"></a>
+        <article id="downloads">
+            <div class="bg"></div>
+            <a name="downloads"></a>
+            <a href="#characters" class="nav-prev" title="Вверх"></a>
+            <a href="#footer" class="nav-next" title="Вниз"></a>
 
-			<div class="content">
-				<h1>Скачать</h1>
-				<div class="text">
-					<ul>
-						<li><a href="#">Windows</a></li>
-						<li><a href="#">Linux</a></li>
-						<li><a href="#">Mac</a></li>
-					</ul>
-				</div>
-			</div>
-		</article><footer>
-			<a name="footer"></a>
-			<a href="#downloads" class="nav-prev" title="Вверх"></a>
+            <div class="content">
+                <h1>Скачать</h1>
+                <div class="text">
+					<p>Скачать бесплатно, без смс. Да, именно так. Этот текст, конечно, будет выглядет по-разному, в зависимости от разрешения экрана пользователя.</p>
+                </div>
+				<ul class="unstyled">
+					<li>
+						<a class="icon windows" href="#"></a>
+						<a class="" href="#">Windows (42.3 Мб)</a>
+					</li>
+					<li>
+						<a class="icon android" href="#"></a>
+						<a class="" href="#">Android (42.14 Мб)</a>
+					</li>
+					<li>
+						<a class="icon linux" href="#"></a>
+						<a class="" href="#">Linux (42.15 Мб)</a>
+					</li>
+					<li>
+						<a class="icon mac" href="#"></a>
+						<a class="" href="#">Mac (42.92 Мб)</a>
+					</li>
+				</ul>
 
-	        <div class="content">
-		        <div class="text">
-					<p>AwesomeStudio, 2015</p>
-		        </div>
-	        </div>
+                <iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=410012929231963&quickpay=shop&payment-type-choice=on&writer=seller&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C+%D1%82%D0%B2%D0%BE%D1%80%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%83+Ignis+Sanat&default-sum=100&button-text=03&successURL=" width="450" height="213"></iframe>
+                https://money.yandex.ru/i/forms/guide-to-custom-p2p-forms.pdf
+            </div>
+        </article>
+
+		<footer>
+            <a name="footer"></a>
+            <a href="#downloads" class="nav-prev" title="Вверх"></a>
+
+            <div class="content">
+                <div class="text">
+                    <p>«Вьются по миру дороги, пути широкие и узкие. Есть среди них те, коих не осилить одному, но не проторены те, с которыми не совладать двоим: узнице и смотрителю, скрытым за одним лицом.»</p>
+                    <p>Электропочта: <small>ignis-sanat-support&lt;@&gt;yandex.ru</small></p>
+                </div>
+            </div>
         </footer>
 
 

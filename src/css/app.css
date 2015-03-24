@@ -1,33 +1,49 @@
+@font-face {
+	font-family: 'magic_cards_cyrillicregular';
+	src: url('../fonts/mc_rus-webfont.eot');
+	src: url('../fonts/mc_rus-webfont.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/mc_rus-webfont.woff') format('woff'),
+	url('../fonts/mc_rus-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: magic_cards_cyrillicregular, Georgia, sans-serif;
+	letter-spacing: 1px;
+	text-shadow: 1px 1px black;
+	color: #ffc;
+	background: #333;
+}
+
 body a {
 	color: #ffc;
-	font-family: Georgia, sans-serif;
+	text-decoration: none;
 }
 
 body a:hover {
 	color: #ffa034;
 }
 
+p {
+	font-size: 1.3em;
+	text-indent: 1em;
+	line-height: 1.4em;
+}
+
+p:first-letter {
+	font-size: 2em;
+	color: #ff0005;
+}
+
+h1 {
+	text-align: center;
+}
+
 article {
 	height: 100vh;
 	position: relative;
 	/*border-bottom: #000000 1px dashed;*/
-}
-
-article .nav-prev,
-article .nav-next {
-	display: block;
-	position: absolute;
-	bottom: 20px;
-	left: calc(50% - 25px);
-	width: 50px;
-	height: 50px;
-	background: url('../img/adown.png') no-repeat center center;
-}
-
-article .nav-prev {
-	bottom: auto;
-	top: 20px;
-	transform: rotate(180deg);
 }
 
 article .logo {
@@ -42,22 +58,12 @@ article .logo img {
 }
 
 article .content {
-	position: absolute;
-	z-index: 10;
-	width: 50vw;
+	position: relative;
 	background: rgba(0, 0, 0, 0.3);
 	border-radius: 10px;
-	top: 30vh;
-	padding: 10px;
-	color: #ffc;
-}
-
-article:nth-child(2n) .content {
-	left: 10vw;
-}
-
-article:nth-child(2n+1) .content {
-	right: 10vw;
+	top: 10vh;
+	margin: 0 10%;
+	padding: 10px 35px;
 }
 
 .bg {
@@ -73,16 +79,24 @@ article:nth-child(2n+1) .content {
 	z-index: 0;
 }
 
-article:nth-child(1) > .bg {
+article:nth-of-type(1) > .bg {
 	background-image: url('../img/header.png');
 }
 
-article:nth-child(2) > .bg {
+article:nth-of-type(2) > .bg {
 	background-image: url('../img/graphics%20archive/секция%201.jpg');
 }
 
-article:nth-child(4) > .bg {
+article:nth-of-type(4) > .bg {
 	background-image: url('../img/graphics%20archive/секция%202.jpg');
+}
+
+article:nth-of-type(2) {
+	height: 1550px;
+}
+
+article:nth-of-type(4) {
+	height: 1280px;
 }
 
 /**
@@ -101,16 +115,20 @@ article:nth-child(4) > .bg {
 }
 
 .carousel ul > li:nth-child(1) > .bg {
-	background-image: url('../img/graphics%20archive/чар%201.jpg');
+	background-image: url('../img/characters/sil%20sprite.png'),
+				url('../img/characters/sil%20background.png');
 }
 .carousel ul > li:nth-child(2) > .bg {
-	background-image: url('../img/graphics%20archive/чар%202.jpg');
+	background-image: url('../img/characters/anga%20sprite.png'),
+						url('../img/characters/anga%20background.png');
 }
 .carousel ul > li:nth-child(3) > .bg {
-	background-image: url('../img/graphics%20archive/чар%203.jpg');
+	background-image: url('../img/characters/rihard%20sprite.png'),
+						url('../img/characters/rihard%20background.png');
 }
 .carousel ul > li:nth-child(4) > .bg {
-	background-image: url('../img/graphics%20archive/чар%204.jpg');
+	background-image: url('../img/characters/waiger%20sprite.png'),
+						url('../img/characters/waiger%20background.png');
 }
 
 .carousel .next,
@@ -133,7 +151,7 @@ article:nth-child(4) > .bg {
 
 .carousel .next {
 	margin-right: -60px;
-	background: url(../js/vendor/anoslide/images/next.png) 0 0 no-repeat;
+	background: url(../img/cright.png) 0 0 no-repeat;
 }
 
 .carousel {
@@ -146,7 +164,10 @@ article:nth-child(4) > .bg {
 .carousel > ul > li > .bg {
 	height: 100vh;
 	position: relative;
-	background-attachment: fixed;
+	background-repeat: no-repeat, no-repeat;
+	background-position: 50% bottom, 50% top;
+	background-size: auto, cover;
+	background-attachment: scroll;
 }
 
 .carousel .paging {
@@ -172,20 +193,245 @@ article:nth-child(4) > .bg {
  * End Carousel
  */
 
-nav {
+/**
+ * Navigation
+ */
+
+/* No Touch devices */
+.cd-nav-trigger {
+	display: none;
+}
+
+.no-touch #cd-vertical-nav {
+	position: fixed;
+	right: 40px;
+	top: 50%;
+	bottom: auto;
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+	transform: translateY(-50%);
+	z-index: 1;
+}
+.no-touch #cd-vertical-nav li {
+	text-align: right;
+}
+.no-touch #cd-vertical-nav a {
+	display: inline-block;
+	/* prevent weird movements on hover when you use a CSS3 transformation - webkit browsers */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.no-touch #cd-vertical-nav a:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.no-touch #cd-vertical-nav a span {
+	display: inline-block;
+	float: right;
+	-webkit-transform: scale(0.6);
+	-moz-transform: scale(0.6);
+	-ms-transform: scale(0.6);
+	-o-transform: scale(0.6);
+	transform: scale(0.6);
+}
+.no-touch #cd-vertical-nav a:hover span {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+.no-touch #cd-vertical-nav a:hover .cd-label {
+	opacity: 1;
+}
+.no-touch #cd-vertical-nav a.is-selected .cd-dot {
+	background-color: white;
+}
+.no-touch #cd-vertical-nav .cd-dot {
+	position: relative;
+	top: 8px;
+	height: 12px;
+	width: 12px;
+	border-radius: 50%;
+	background-color: #d88683;
+	-webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
+	-moz-transition: -moz-transform 0.2s, background-color 0.5s;
+	transition: transform 0.2s, background-color 0.5s;
+	-webkit-transform-origin: 50% 50%;
+	-moz-transform-origin: 50% 50%;
+	-ms-transform-origin: 50% 50%;
+	-o-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+}
+.no-touch #cd-vertical-nav .cd-label {
+	position: relative;
+	margin-right: 10px;
+	padding: .4em .5em;
+	color: white;
+	font-size: 14px;
+	font-size: 0.875rem;
+	-webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+	-moz-transition: -moz-transform 0.2s, opacity 0.2s;
+	transition: transform 0.2s, opacity 0.2s;
+	opacity: 0;
+	-webkit-transform-origin: 100% 50%;
+	-moz-transform-origin: 100% 50%;
+	-ms-transform-origin: 100% 50%;
+	-o-transform-origin: 100% 50%;
+	transform-origin: 100% 50%;
+}
+
+/* Touch devices */
+.touch .cd-nav-trigger {
+	display: block;
+	z-index: 2;
+	position: fixed;
+	bottom: 30px;
+	right: 5%;
+	height: 44px;
+	width: 44px;
+	border-radius: 0.25em;
+	background: rgba(255, 255, 255, 0.9);
+}
+.touch .cd-nav-trigger span {
+	position: absolute;
+	height: 4px;
+	width: 4px;
+	background-color: #3e3947;
+	border-radius: 50%;
+	left: 50%;
+	top: 50%;
+	bottom: auto;
+	right: auto;
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-moz-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%) translateY(-50%);
+	-o-transform: translateX(-50%) translateY(-50%);
+	transform: translateX(-50%) translateY(-50%);
+}
+.touch .cd-nav-trigger span::before, .touch .cd-nav-trigger span::after {
+	content: '';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	background-color: inherit;
+	border-radius: inherit;
+}
+.touch .cd-nav-trigger span::before {
+	top: -9px;
+}
+.touch .cd-nav-trigger span::after {
+	bottom: -9px;
+}
+
+.touch #cd-vertical-nav {
+	position: fixed;
+	z-index: 1;
+	right: 5%;
+	bottom: 30px;
+	width: 90%;
+	max-width: 400px;
+	max-height: 90%;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	-webkit-transform-origin: right bottom;
+	-moz-transform-origin: right bottom;
+	-ms-transform-origin: right bottom;
+	-o-transform-origin: right bottom;
+	transform-origin: right bottom;
+	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
+	-o-transform: scale(0);
+	transform: scale(0);
+	-webkit-transition-property: -webkit-transform;
+	-moz-transition-property: -moz-transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	border-radius: 0.25em;
+	background-color: rgba(255, 255, 255, 0.9);
+}
+.touch #cd-vertical-nav a {
+	display: block;
+	padding: 1em;
+	border-bottom: 1px solid rgba(62, 57, 71, 0.1);
+}
+.touch #cd-vertical-nav a span:first-child {
+	display: none;
+}
+.touch #cd-vertical-nav a.is-selected span:last-child {
+	color: #d88683;
+}
+.touch #cd-vertical-nav.open {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+}
+.touch #cd-vertical-nav.open + .cd-nav-trigger {
+	background-color: transparent;
+}
+.touch #cd-vertical-nav.open + .cd-nav-trigger span {
+	background-color: rgba(62, 57, 71, 0);
+}
+.touch #cd-vertical-nav.open + .cd-nav-trigger span::before, .touch #cd-vertical-nav.open + .cd-nav-trigger span::after {
+	background-color: #3e3947;
+	height: 3px;
+	width: 20px;
+	border-radius: 0;
+	left: -8px;
+}
+.touch #cd-vertical-nav.open + .cd-nav-trigger span::before {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+	transform: rotate(45deg);
+	top: 1px;
+}
+.touch #cd-vertical-nav.open + .cd-nav-trigger span::after {
+	-webkit-transform: rotate(135deg);
+	-moz-transform: rotate(135deg);
+	-ms-transform: rotate(135deg);
+	-o-transform: rotate(135deg);
+	transform: rotate(135deg);
+	bottom: 0;
+}
+.touch #cd-vertical-nav li:last-child a {
+	border-bottom: none;
+}
+
+@media only screen and (min-width: 768px) {
+	.touch .cd-nav-trigger, .touch #cd-vertical-nav {
+		bottom: 40px;
+	}
+}
+
+/**
+ *
+ */
+
+nav.menu {
 	position: relative;
 }
 
-nav ul {
+nav.menu ul {
 	width: 100%;
 	text-align: center;
 }
 
-nav li {
+nav.menu li {
 	display: inline-block;
 }
 
-nav li a {
+nav.menu li a {
 	display: block;
 	padding: 4px;
 	margin: 0 10px;
@@ -195,5 +441,61 @@ nav li a {
 footer {
 	position: relative;
 	height: 300px;
-	background: url('../img/graphics%20archive/футер.jpg') no-repeat left top;
+	background: url('../img/footer.jpg') no-repeat left top;
+	border-top: 1px transparent solid;
+	padding: 10px 40px;
+}
+
+footer .content {
+	width: 40%;
+	float: right;
+	margin-right: 4%;
+}
+
+#downloads ul {
+	text-align: center;
+	width: 100%;
+}
+
+#downloads li {
+	display: inline-block;
+	width: 24%;
+	text-align: center;
+	vertical-align: text-top;
+}
+
+#downloads .content {
+
+}
+
+#downloads .icon {
+	display: block;
+	width: 100%;
+	height: 128px;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	margin-bottom: 10px;
+}
+
+#downloads .icon.windows {
+	background-image: url('../img/icons/windows.png');
+}
+
+#downloads .icon.linux {
+	background-image: url('../img/icons/linux.png');
+}
+
+#downloads .icon.android {
+	background-image: url('../img/icons/android.png');
+}
+
+#downloads .icon.mac {
+	background-image: url('../img/icons/mac.png');
+}
+
+#characters .content {
+	position: absolute;
+	z-index: 10;
+	width: 50vw;
+	top: 30vh;
 }

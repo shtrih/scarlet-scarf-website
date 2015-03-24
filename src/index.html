@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="ru">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,7 +29,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="#brief" data-number="2">
+					<a href="#brief-anchor" data-number="2">
 						<span class="cd-dot"></span>
 						<span class="cd-label">Сюжет</span>
 					</a>
@@ -52,7 +52,8 @@
 
         <article id="header">
             <div class="bg"
-                 data-stellar-background-ratio="0.2"></div>
+                 data-stellar-vertical-offset="0"
+                 data-stellar-ratio="0.2"></div>
             <a name="header"></a>
             <!--<a href="#brief" class="nav-next" title="Вниз"></a>-->
 
@@ -72,10 +73,20 @@
 
         <article id="brief">
             <div class="bg"
-                 data-stellar-background-ratio="2"></div>
-            <a name="brief"></a>
+                 data-stellar-offset-parent="true"
+                 data-stellar-vertical-offset="1000"
+                 data-stellar-ratio="0.9"></div>
+            <div class="bg"
+                 data-stellar-offset-parent="true"
+                 data-stellar-vertical-offset="-900"
+                 data-stellar-ratio="1.4"></div>
+            <div class="bg"
+                 data-stellar-offset-parent="true"
+                 data-stellar-vertical-offset="-500"
+                 data-stellar-ratio="1.6"></div>
             <a href="#header" class="nav-prev" title="Вверх"></a>
             <a href="#characters" class="nav-next" title="Вниз"></a>
+            <a name="brief-anchor"></a>
 
             <div class="content">
                 <h1>Сюжет</h1>
@@ -149,7 +160,10 @@
         </article>
 
         <article id="downloads">
-            <div class="bg"></div>
+            <div class="bg"
+                 data-stellar-offset-parent="true"
+                 data-stellar-vertical-offset="900"
+                 data-stellar-ratio="1.5"></div>
             <a name="downloads"></a>
             <a href="#characters" class="nav-prev" title="Вверх"></a>
             <a href="#footer" class="nav-next" title="Вниз"></a>
@@ -190,7 +204,7 @@
             <div class="content">
                 <div class="text">
                     <p>«Вьются по миру дороги, пути широкие и узкие. Есть среди них те, коих не осилить одному, но не проторены те, с которыми не совладать двоим: узнице и смотрителю, скрытым за одним лицом.»</p>
-                    <p>Электропочта: <small>ignis-sanat-support&lt;@&gt;yandex.ru</small></p>
+                    <p>Электропочта: <small>ignis-sanat-support<i>@</i>yandex.ru</small></p>
                 </div>
             </div>
         </footer>

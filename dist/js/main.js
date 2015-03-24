@@ -7,7 +7,8 @@ $(function () {
         // horizontalOffset: 40,
         // verticalOffset: 0
         hideDistantElements: true,
-        horizontalScrolling: false
+        horizontalScrolling: false,
+        responsive: true
     });
 
     var navigationBlock = $('#cd-vertical-nav'),
@@ -47,7 +48,7 @@ $(function () {
 
     $('.carousel ul').anoSlide({
         items: 1,
-        speed: 1000,
+        speed: 500,
         prev: 'a.prev',
         next: 'a.next',
         // lazy: true,

@@ -73,30 +73,14 @@ article .content {
 	left: 0;
 	position: absolute;
 	background-repeat: no-repeat;
-	background-position: 50% top;
+	background-position: 50% bottom;
 	background-size: cover;
-	background-attachment: fixed;
+	background-attachment: scroll;
 	z-index: 0;
 }
 
 article:nth-of-type(1) > .bg {
 	background-image: url('../img/header.png');
-}
-
-article:nth-of-type(2) > .bg {
-	background-image: url('../img/graphics%20archive/секция%201.jpg');
-}
-
-article:nth-of-type(4) > .bg {
-	background-image: url('../img/graphics%20archive/секция%202.jpg');
-}
-
-article:nth-of-type(2) {
-	height: 1550px;
-}
-
-article:nth-of-type(4) {
-	height: 1280px;
 }
 
 /**
@@ -197,6 +181,10 @@ article:nth-of-type(4) {
  * Navigation
  */
 
+.no-js #cd-vertical-nav {
+	display:none;
+}
+
 /* No Touch devices */
 .cd-nav-trigger {
 	display: none;
@@ -212,7 +200,7 @@ article:nth-of-type(4) {
 	-ms-transform: translateY(-50%);
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
-	z-index: 1;
+	z-index: 100;
 }
 .no-touch #cd-vertical-nav li {
 	text-align: right;
@@ -287,7 +275,7 @@ article:nth-of-type(4) {
 /* Touch devices */
 .touch .cd-nav-trigger {
 	display: block;
-	z-index: 2;
+	z-index: 200;
 	position: fixed;
 	bottom: 30px;
 	right: 5%;
@@ -330,7 +318,7 @@ article:nth-of-type(4) {
 
 .touch #cd-vertical-nav {
 	position: fixed;
-	z-index: 1;
+	z-index: 100;
 	right: 5%;
 	bottom: 30px;
 	width: 90%;
@@ -452,6 +440,25 @@ footer .content {
 	margin-right: 4%;
 }
 
+#characters {
+	z-index: 10;
+}
+
+#downloads .bg {
+	height: 1280px;
+	background-image: url('../img/graphics%20archive/секция%202.jpg');
+}
+
+
+#downloads {
+	height: 750px;
+	z-index: 0;
+}
+
+#downloads .content {
+
+}
+
 #downloads ul {
 	text-align: center;
 	width: 100%;
@@ -462,10 +469,6 @@ footer .content {
 	width: 24%;
 	text-align: center;
 	vertical-align: text-top;
-}
-
-#downloads .content {
-
 }
 
 #downloads .icon {
@@ -495,7 +498,36 @@ footer .content {
 
 #characters .content {
 	position: absolute;
-	z-index: 10;
 	width: 50vw;
 	top: 30vh;
+}
+
+#header .bg {
+	background-position: 50% 50%;
+}
+
+#brief {
+	height: 1400px;
+}
+
+#brief a[name] {
+	bottom: 100vh;
+	position: absolute;
+}
+
+#brief .content {
+	top: 820px;
+}
+
+#brief .bg:nth-of-type(1) {
+	background-image: url('../img/layers/1/back.jpg');
+}
+
+#brief .bg:nth-of-type(2) {
+	background-image: url('../img/layers/1/middle.png');
+}
+
+#brief .bg:nth-of-type(3) {
+	background-image: url('../img/layers/1/front.png');
+	background-size: auto;
 }

@@ -12,7 +12,7 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/app.css?1427268334728">
+        <link rel="stylesheet" href="css/app.css?1427276413823">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
@@ -44,6 +44,12 @@
 					<a href="#downloads" data-number="4">
 						<span class="cd-dot"></span>
 						<span class="cd-label">Скачать</span>
+					</a>
+				</li>
+                <li>
+					<a href="#donate" data-number="5">
+						<span class="cd-dot"></span>
+						<span class="cd-label">Донат</span>
 					</a>
 				</li>
 			</ul>
@@ -162,7 +168,7 @@
         <article id="downloads">
             <div class="bg"
                  data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="900"
+                 data-stellar-vertical-offset="700"
                  data-stellar-ratio="1.5"></div>
             <a name="downloads"></a>
             <a href="#characters" class="nav-prev" title="Вверх"></a>
@@ -191,10 +197,53 @@
 						<a class="" href="#">Mac (42.92 Мб)</a>
 					</li>
 				</ul>
-
-                <iframe frameborder="0" allowtransparency="true" scrolling="no" src="https://money.yandex.ru/embed/shop.xml?account=410012929231963&quickpay=shop&payment-type-choice=on&writer=seller&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C+%D1%82%D0%B2%D0%BE%D1%80%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E+%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D1%83+Ignis+Sanat&default-sum=100&button-text=03&successURL=" width="450" height="213"></iframe>
-                https://money.yandex.ru/i/forms/guide-to-custom-p2p-forms.pdf
             </div>
+        </article>
+
+        <article id="donate">
+            <div class="bg"></div>
+
+            <div class="content">
+                <p>Если вам нравится творчество команды «Ignis Sanat», перечислите любую сумму удобным вам способом.</p>
+                <div class="form-wrapper">
+                    <form method="POST" target="_blank" action="https://money.yandex.ru/quickpay/confirm.xml">
+                        <!-- required -->
+                        <input type="hidden" name="receiver" value="410012929231963" />
+                        <!--<input type="hidden" name="formcomment" value="Поддержать творческую группу Ignis Sanat" />-->
+                        <!--<input type="hidden" name="short-dest" value=" Поддержать творческую группу Ignis Sanat" />-->
+                        <input type="hidden" name="quickpay-form" value="donate" />
+                        <input type="hidden" name="targets" value="Поддержать творческую группу Ignis Sanat" />
+                        <div>
+                            <label>Сумма: <input type="number" name="sum" value="100" maxlength="6" step="10" data-type="number" ></label>
+                        </div>
+                        <div>
+                            Способ оплаты:
+                            <label title="платеж с карты VISA или MasterCard">
+                                <input type="radio" name="paymentType" value="AC" checked="checked" />
+                                <img src="img/icons/visa-mastercard.png" alt="">
+                            </label>
+                            <label title="платеж из кошелька в Яндекс.Деньгах">
+                                <input type="radio" name="paymentType" value="PC" />
+                                <img src="img/icons/yandex-modey.png" alt="">
+                            </label>
+                        </div>
+
+                        <!-- optional -->
+                        <div>
+                            <label>
+                                <textarea name="comment" maxlength="200" cols="50" rows="3" placeholder="Комментарий" ></textarea>
+                            </label>
+                        </div>
+                        <input type="hidden" name="label" value="" />
+                        <input type="hidden" name="need-fio" value="false" />
+                        <input type="hidden" name="need-email" value="false" />
+                        <input type="hidden" name="need-phone" value="false" />
+                        <input type="hidden" name="need-address" value="false" />
+
+                        <input type="submit" name="submit-button" value="Перевести" />
+                    </form>
+                </div>
+           </div>
         </article>
 
 		<footer>
@@ -219,7 +268,7 @@
         <script src="js/vendor/jquery.localScroll.min.js"></script>
         <script src="js/vendor/jquery.stellar.js"></script>
         <script src="js/plugins.js"></script>
-        <script src="js/main.js?1427268334728"></script>
+        <script src="js/main.js?1427276413823"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

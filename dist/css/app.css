@@ -13,7 +13,7 @@ body {
 	letter-spacing: 1px;
 	text-shadow: 1px 1px black;
 	color: #ffc;
-	background: #333;
+	background: #111;
 }
 
 body a {
@@ -432,6 +432,7 @@ footer {
 	background: url('../img/footer.jpg') no-repeat left top;
 	border-top: 1px transparent solid;
 	padding: 10px 40px;
+	z-index: 5;
 }
 
 footer .content {
@@ -451,8 +452,8 @@ footer .content {
 
 
 #downloads {
-	height: 750px;
-	z-index: 0;
+	height: 800px;
+	z-index: 1;
 }
 
 #downloads .content {
@@ -530,4 +531,29 @@ footer .content {
 #brief .bg:nth-of-type(3) {
 	background-image: url('../img/layers/1/front.png');
 	background-size: auto;
+}
+
+#donate {
+	height: 720px;
+	z-index: 5;
+}
+
+#donate .bg {
+	background-image: url('../img/8.jpg');
+	background-position: center top;
+	background-attachment: fixed;
+}
+
+#donate input,
+#donate textarea {
+	background: #2F2C31;
+	border: #4C4C3D 1px solid;
+}
+
+#donate form {
+	padding: 10px 30px;
+}
+
+#donate form div {
+	padding: 6px 0;
 }

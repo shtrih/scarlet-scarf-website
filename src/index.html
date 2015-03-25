@@ -179,24 +179,32 @@
                 <div class="text">
 					<p>Скачать бесплатно, без смс. Да, именно так. Этот текст, конечно, будет выглядет по-разному, в зависимости от разрешения экрана пользователя.</p>
                 </div>
-				<ul class="unstyled">
-					<li>
-						<a class="icon windows" href="#"></a>
-						<a class="" href="#">Windows (42.3 Мб)</a>
-					</li>
-					<li>
-						<a class="icon android" href="#"></a>
-						<a class="" href="#">Android (42.14 Мб)</a>
-					</li>
-					<li>
-						<a class="icon linux" href="#"></a>
-						<a class="" href="#">Linux (42.15 Мб)</a>
-					</li>
-					<li>
-						<a class="icon mac" href="#"></a>
-						<a class="" href="#">Mac (42.92 Мб)</a>
-					</li>
-				</ul>
+                <div class="pull-left links">
+                    <ul class="unstyled">
+                        <li>
+                            <a class="icon windows" href="#"></a>
+                            <a class="" href="#">Windows (42.3 Мб)</a>
+                        </li>
+                        <li>
+                            <a class="icon android" href="#"></a>
+                            <a class="" href="#">Android (42.14 Мб)</a>
+                        </li>
+                        <li>
+                            <a class="icon linux" href="#"></a>
+                            <a class="" href="#">Linux (42.15 Мб)</a>
+                        </li>
+                        <li>
+                            <a class="icon mac" href="#"></a>
+                            <a class="" href="#">Mac (42.92 Мб)</a>
+                        </li>
+                    </ul>
+                    <a class="playbtn" href="http://www.desura.com/games/erie" title="View ERIE on Desura" target="_blank"><img src="http://button.desura.com/play/medium/games/19040.png" alt="ERIE"></a>
+                </div>
+                <div class="pull-right misc">
+                    <img src="img/gamelogo.jpg" />
+                    <img src="img/by-nc-sa.png" />
+                </div>
+                <div class="clearfix"></div>
             </div>
         </article>
 
@@ -205,44 +213,40 @@
 
             <div class="content">
                 <p>Если вам нравится творчество команды «Ignis Sanat», перечислите любую сумму удобным вам способом.</p>
-                <div class="form-wrapper">
-                    <form method="POST" target="_blank" action="https://money.yandex.ru/quickpay/confirm.xml">
-                        <!-- required -->
-                        <input type="hidden" name="receiver" value="410012929231963" />
-                        <!--<input type="hidden" name="formcomment" value="Поддержать творческую группу Ignis Sanat" />-->
-                        <!--<input type="hidden" name="short-dest" value=" Поддержать творческую группу Ignis Sanat" />-->
-                        <input type="hidden" name="quickpay-form" value="donate" />
-                        <input type="hidden" name="targets" value="Поддержать творческую группу Ignis Sanat" />
-                        <div>
-                            <label>Сумма: <input type="number" name="sum" value="100" maxlength="6" step="10" data-type="number" ></label>
-                        </div>
-                        <div>
-                            Способ оплаты:
-                            <label title="платеж с карты VISA или MasterCard">
-                                <input type="radio" name="paymentType" value="AC" checked="checked" />
-                                <img src="img/icons/visa-mastercard.png" alt="">
-                            </label>
-                            <label title="платеж из кошелька в Яндекс.Деньгах">
-                                <input type="radio" name="paymentType" value="PC" />
-                                <img src="img/icons/yandex-modey.png" alt="">
-                            </label>
-                        </div>
+                <form method="POST" target="_blank" action="https://money.yandex.ru/quickpay/confirm.xml">
+                    <!-- required -->
+                    <input type="hidden" name="receiver" value="410012929231963" />
+                    <!--<input type="hidden" name="formcomment" value="Поддержать творческую группу Ignis Sanat" />-->
+                    <!--<input type="hidden" name="short-dest" value=" Поддержать творческую группу Ignis Sanat" />-->
+                    <input type="hidden" name="quickpay-form" value="donate" />
+                    <input type="hidden" name="targets" value="Поддержать творческую группу Ignis Sanat" />
+                    <div>
+                        <label>Сумма: <input type="number" name="sum" value="100" maxlength="6" step="10" data-type="number" ></label>
+                    </div>
+                    <div class="radio">
+                        Способ оплаты:
+                        <input id="card" type="radio" name="paymentType" value="AC" checked="checked" />
+                        <label for="card" title="платеж с карты VISA или MasterCard">
+                            <img src="img/icons/visa-mastercard.png" alt="">
+                        </label><input id="yad" type="radio" name="paymentType" value="PC" /><label for="yad" title="платеж из кошелька в Яндекс.Деньгах">
+                            <img src="img/icons/yandex-modey.png" alt="">
+                        </label>
+                    </div>
 
-                        <!-- optional -->
-                        <div>
-                            <label>
-                                <textarea name="comment" maxlength="200" cols="50" rows="3" placeholder="Комментарий" ></textarea>
-                            </label>
-                        </div>
-                        <input type="hidden" name="label" value="" />
-                        <input type="hidden" name="need-fio" value="false" />
-                        <input type="hidden" name="need-email" value="false" />
-                        <input type="hidden" name="need-phone" value="false" />
-                        <input type="hidden" name="need-address" value="false" />
+                    <!-- optional -->
+                    <div>
+                        <label>
+                            <textarea name="comment" maxlength="200" cols="50" rows="2" placeholder="Комментарий" ></textarea>
+                        </label>
+                    </div>
+                    <input type="hidden" name="label" value="" />
+                    <input type="hidden" name="need-fio" value="false" />
+                    <input type="hidden" name="need-email" value="false" />
+                    <input type="hidden" name="need-phone" value="false" />
+                    <input type="hidden" name="need-address" value="false" />
 
-                        <input type="submit" name="submit-button" value="Перевести" />
-                    </form>
-                </div>
+                    <input type="submit" name="submit-button" value="Перевести" />
+                </form>
            </div>
         </article>
 

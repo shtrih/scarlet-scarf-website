@@ -1,6 +1,7 @@
 $(function () {
     $.localScroll({
-        hash: true
+        hash: true,
+        easing:'easeInOutCirc'
     });
 
     $.stellar({

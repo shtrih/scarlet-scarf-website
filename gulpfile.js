@@ -93,6 +93,7 @@ gulp.task('copy:jquery', function () {
 
 gulp.task('copy:other-vendors', function () {
     return gulp.src([
+            'node_modules/jquery.easing/jquery.easing.1.3.min.js',
             'node_modules/jquery.scrollto/jquery.scrollTo.min.js',
             'node_modules/jquery.localscroll/jquery.localScroll.min.js',
             'node_modules/jquery.stellar/jquery.stellar.js'

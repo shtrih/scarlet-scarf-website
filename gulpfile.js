@@ -12,6 +12,12 @@ var runSequence = require('run-sequence');    // Temporary solution until gulp 4
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
 
+var browserify = require('browserify');
+var watchify = require('watchify');
+var sourceStream = require('vinyl-source-stream');
+// var buffer = require('vinyl-buffer');
+// var uglify = require('gulp-uglify');
+
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
@@ -65,8 +71,8 @@ gulp.task('clean', function (done) {
 gulp.task('copy', [
     'copy:.htaccess',
     'copy:index.html',
-    'copy:jquery',
-    'copy:other-vendors',
+//    'copy:jquery',
+//    'copy:other-vendors',
     'copy:main.css',
     'copy:misc',
     'copy:normalize'
@@ -150,6 +156,41 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint.reporter('fail'));
 });
 
+// via http://habrahabr.ru/post/224825/
+gulp.task('browserify', function() {
+    return browserify({ debug: true })
+        .add('./' + dirs.src + '/js/test.js')
+        .bundle()
+        .pipe(sourceStream('app.min.js'))
+        // http://stackoverflow.com/questions/24992980/how-to-uglify-output-with-browserify-in-gulp
+        // .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
+        // .pipe(uglify()) // now gulp-uglify works
+        .pipe(gulp.dest(dirs.dist + '/js/'));
+});
+
+gulp.task('watch', function() {
+    var bundler = watchify({ debug: true });
+
+    function rebundle() {
+        return bundler
+            .add('./' + dirs.src + '/js/test.js')
+            .bundle()
+            .pipe(sourceStream(dirs.dist + '/app.js'))
+            .pipe(gulp.dest(dirs.dist + '/js/'));
+    }
+
+    bundler.on('update', rebundle);
+
+    return rebundle();
+});
+
+// var imagemin   = require('gulp-imagemin');
+//
+// gulp.task('images', function(){
+//     return gulp.src('./src/images/**')
+//         .pipe(imagemin())
+//         .pipe(gulp.dest('./build/images'));
+// });
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
@@ -166,6 +207,8 @@ gulp.task('archive', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         ['clean', 'lint:js'],
+        // ['browserify', 'watch'],
+        'browserify',
         'copy',
     done);
 });

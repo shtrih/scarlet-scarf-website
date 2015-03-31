@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var plugins = require('gulp-load-plugins')(); // Load all gulp plugins
                                               // automatically and attach
                                               // them to the `plugins` object
@@ -14,6 +15,8 @@ var dirs = pkg['h5bp-configs'].directories;
 
 var browserify = require('browserify');
 var watchify = require('watchify');
+var bundler = watchify(browserify(watchify.args));
+var sourcemaps = require('gulp-sourcemaps');
 var sourceStream = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
@@ -86,7 +89,6 @@ gulp.task('copy:.htaccess', function () {
 
 gulp.task('copy:index.html', function () {
     return gulp.src(dirs.src + '/index.html')
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(plugins.replace(/{{BUILD_TIMESTAMP}}/g, Date.now()))
                .pipe(gulp.dest(dirs.dist));
 });
@@ -130,7 +132,9 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/main.css',
         '!' + dirs.src + '/index.html',
-        '!' + dirs.src + '/img/**/*.xcf'
+        '!' + dirs.src + '/img/**/*.xcf',
+        // browserify handle these files
+        '!' + dirs.src + '/js/*.js'
 
     ], {
 
@@ -156,33 +160,25 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint.reporter('fail'));
 });
 
-// via http://habrahabr.ru/post/224825/
-gulp.task('browserify', function() {
-    return browserify({ debug: true })
-        .add('./' + dirs.src + '/js/test.js')
+// https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
+var bundle = function() {
+    return bundler
+        .add('./' + dirs.src + '/js/app.js')
         .bundle()
+        // log errors if they happen
+        .on('error', gutil.log.bind(gutil, 'Browserify Error'))
         .pipe(sourceStream('app.min.js'))
-        // http://stackoverflow.com/questions/24992980/how-to-uglify-output-with-browserify-in-gulp
         .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
-        .pipe(uglify()) // now gulp-uglify works
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        // Add transformation tasks to the pipeline here.
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(dirs.dist + '/js/'));
-});
+};
 
-gulp.task('watch', function() {
-    var bundler = watchify({ debug: true });
-
-    function rebundle() {
-        return bundler
-            .add('./' + dirs.src + '/js/test.js')
-            .bundle()
-            .pipe(sourceStream(dirs.dist + '/app.js'))
-            .pipe(gulp.dest(dirs.dist + '/js/'));
-    }
-
-    bundler.on('update', rebundle);
-
-    return rebundle();
-});
+gulp.task('browserify', bundle); // so you can run `gulp js` to build the file
+bundler.on('update', bundle); // on any dep update, runs the bundler
+bundler.on('log', gutil.log); // output build logs to terminal
 
 // var imagemin   = require('gulp-imagemin');
 //
@@ -207,7 +203,6 @@ gulp.task('archive', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         ['clean', 'lint:js'],
-        // ['browserify', 'watch'],
         'browserify',
         'copy',
     done);

@@ -2,6 +2,7 @@ var fs = require('fs');
 var path = require('path');
 
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var plugins = require('gulp-load-plugins')(); // Load all gulp plugins
                                               // automatically and attach
                                               // them to the `plugins` object
@@ -11,6 +12,19 @@ var runSequence = require('run-sequence');    // Temporary solution until gulp 4
 
 var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
+
+var browserify = require('browserify');
+var watchify = require('watchify');
+var bundler = watchify(browserify(watchify.args));
+var sourcemaps = require('gulp-sourcemaps');
+var sourceStream = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
+
+var imagemin = require('gulp-imagemin');
+
+var minifyCSS = require('gulp-minify-css');
+var autoprefixer = require('gulp-autoprefixer');
 
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
@@ -65,11 +79,11 @@ gulp.task('clean', function (done) {
 gulp.task('copy', [
     'copy:.htaccess',
     'copy:index.html',
-    'copy:jquery',
-    'copy:other-vendors',
-    'copy:main.css',
-    'copy:misc',
-    'copy:normalize'
+//    'copy:jquery',
+//    'copy:other-vendors',
+//    'copy:main.css',
+//    'copy:normalize',
+    'copy:misc'
 ]);
 
 gulp.task('copy:.htaccess', function () {
@@ -80,7 +94,6 @@ gulp.task('copy:.htaccess', function () {
 
 gulp.task('copy:index.html', function () {
     return gulp.src(dirs.src + '/index.html')
-               .pipe(plugins.replace(/{{JQUERY_VERSION}}/g, pkg.devDependencies.jquery))
                .pipe(plugins.replace(/{{BUILD_TIMESTAMP}}/g, Date.now()))
                .pipe(gulp.dest(dirs.dist));
 });
@@ -123,8 +136,12 @@ gulp.task('copy:misc', function () {
         // Exclude the following files
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/main.css',
+        '!' + dirs.src + '/css/app.css',
         '!' + dirs.src + '/index.html',
-        '!' + dirs.src + '/img/**/*.xcf'
+        // images task handle images copying
+        '!' + dirs.src + '/img/**',
+        // browserify handle these files
+        '!' + dirs.src + '/js/*.js'
 
     ], {
 
@@ -150,6 +167,48 @@ gulp.task('lint:js', function () {
       .pipe(plugins.jshint.reporter('fail'));
 });
 
+// https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
+var bundle = function() {
+    return bundler
+        .add('./' + dirs.src + '/js/app.js')
+        .bundle()
+        // log errors if they happen
+        .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+        .pipe(sourceStream('app.min.js'))
+        .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        // Add transformation tasks to the pipeline here.
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(dirs.dist + '/js/'));
+};
+
+gulp.task('browserify', bundle); // so you can run `gulp js` to build the file
+bundler.on('update', bundle); // on any dep update, runs the bundler
+bundler.on('log', gutil.log); // output build logs to terminal
+
+
+gulp.task('images', function() {
+    return gulp.src([
+            dirs.src + '/img/**',
+            '!' + dirs.src + '/img/**/*.xcf'
+        ])
+        .pipe(imagemin())
+        .pipe(gulp.dest(dirs.dist + '/img'));
+});
+
+gulp.task('minify-css', function () {
+    gulp.src(dirs.src + '/css/app.css')
+        .pipe(plugins.rename('app.min.css'))
+        .pipe(sourcemaps.init())
+        .pipe(autoprefixer({
+            browsers: ['last 4 versions'],
+            cascade: false
+        }))
+        .pipe(minifyCSS())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(dirs.dist + '/css'));
+});
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
@@ -166,7 +225,10 @@ gulp.task('archive', function (done) {
 gulp.task('build', function (done) {
     runSequence(
         ['clean', 'lint:js'],
+        'browserify',
         'copy',
+        'images',
+        'minify-css',
     done);
 });
 

@@ -15,8 +15,8 @@ var dirs = pkg['h5bp-configs'].directories;
 var browserify = require('browserify');
 var watchify = require('watchify');
 var sourceStream = require('vinyl-source-stream');
-// var buffer = require('vinyl-buffer');
-// var uglify = require('gulp-uglify');
+var buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
 
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
@@ -163,8 +163,8 @@ gulp.task('browserify', function() {
         .bundle()
         .pipe(sourceStream('app.min.js'))
         // http://stackoverflow.com/questions/24992980/how-to-uglify-output-with-browserify-in-gulp
-        // .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
-        // .pipe(uglify()) // now gulp-uglify works
+        .pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
+        .pipe(uglify()) // now gulp-uglify works
         .pipe(gulp.dest(dirs.dist + '/js/'));
 });
 

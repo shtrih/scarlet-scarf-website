@@ -765,13 +765,37 @@ footer .content {
 	background-color: #b94a48;
 }
 
-@media all and (min-width: 1em) and (max-width: 41em) {
+@media all and (max-width: 400px) {
+	article .content {
+		padding: 10px 8px;
+	}
+
+	article .logo img {
+		width: 90vw;
+	}
+
+	#characters .content {
+		width: 92vw;
+		padding: 0 15px;
+		margin: 0 1%;
+	}
+}
+
+@media all and (max-width: 650px) {
+	article .logo img {
+		width: 75vw;
+	}
+
 	p {
 		font-size: 1em;
 	}
 
 	h1 {
 		font-size: 1.4em;
+	}
+
+	article .content {
+		margin: 0 3%;
 	}
 
 	#characters .content {
@@ -791,12 +815,26 @@ footer .content {
 	}
 
 	#downloads .content .misc {
-		width: 100%;
+		display: none;
 	}
 
 	footer .content {
 		float: none;
 		width: auto;
+	}
+}
+
+@media all and (min-width: 410px) and (max-width: 650px) {
+	.content .links {
+		width: 330px;
+		margin: 0 auto;
+		float: none;
+	}
+}
+
+@media all and (max-width: 800px) {
+	#brief p {
+		font-size: 1.1em;
 	}
 }
 

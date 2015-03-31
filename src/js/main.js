@@ -4,13 +4,15 @@ $(function () {
         easing:'easeInOutCirc'
     });
 
-    $.stellar({
-        // horizontalOffset: 40,
-        // verticalOffset: 0
-        hideDistantElements: true,
-        horizontalScrolling: false,
-        responsive: true
-    });
+    if (!($(document).width() < 1024 || $(document).height() < 640)) {
+        $.stellar({
+            // horizontalOffset: 40,
+            // verticalOffset: 0
+            hideDistantElements: true,
+            horizontalScrolling: false,
+            responsive: true
+        });
+    }
 
     var navigationBlock = $('#cd-vertical-nav'),
         contentSections = $('article'),

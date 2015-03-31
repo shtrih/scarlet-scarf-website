@@ -1,3 +1,6 @@
+@import url('../../node_modules/normalize.css/normalize.css');
+@import url('./main.css');
+
 @font-face {
 	font-family: 'magic_cards_cyrillicregular';
 	src: url('../fonts/mc_rus-webfont.eot');

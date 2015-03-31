@@ -23,6 +23,9 @@ var uglify = require('gulp-uglify');
 
 var imagemin = require('gulp-imagemin');
 
+var minifyCSS = require('gulp-minify-css');
+var autoprefixer = require('gulp-autoprefixer');
+
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
@@ -78,9 +81,9 @@ gulp.task('copy', [
     'copy:index.html',
 //    'copy:jquery',
 //    'copy:other-vendors',
-    'copy:main.css',
-    'copy:misc',
-    'copy:normalize'
+//    'copy:main.css',
+//    'copy:normalize',
+    'copy:misc'
 ]);
 
 gulp.task('copy:.htaccess', function () {
@@ -133,6 +136,7 @@ gulp.task('copy:misc', function () {
         // Exclude the following files
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/main.css',
+        '!' + dirs.src + '/css/app.css',
         '!' + dirs.src + '/index.html',
         // images task handle images copying
         '!' + dirs.src + '/img/**',
@@ -193,6 +197,19 @@ gulp.task('images', function() {
         .pipe(gulp.dest(dirs.dist + '/img'));
 });
 
+gulp.task('minify-css', function () {
+    gulp.src(dirs.src + '/css/app.css')
+        .pipe(plugins.rename('app.min.css'))
+        .pipe(sourcemaps.init())
+        .pipe(autoprefixer({
+            browsers: ['last 4 versions'],
+            cascade: false
+        }))
+        .pipe(minifyCSS())
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(dirs.dist + '/css'));
+});
+
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
@@ -211,6 +228,7 @@ gulp.task('build', function (done) {
         'browserify',
         'copy',
         'images',
+        'minify-css',
     done);
 });
 

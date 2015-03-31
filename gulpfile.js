@@ -21,6 +21,7 @@ var sourceStream = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 
+var tinypng = require('gulp-tinypng');
 var imagemin = require('gulp-imagemin');
 
 var minifyCSS = require('gulp-minify-css');
@@ -196,6 +197,16 @@ gulp.task('images', function() {
         .pipe(imagemin())
         .pipe(gulp.dest(dirs.dist + '/img'));
 });
+
+gulp.task('tinypng', function() {
+    return gulp.src([
+            dirs.src + '/img/**',
+            '!' + dirs.src + '/img/**/*.xcf'
+        ])
+        .pipe(tinypng('hXWmLf6S3OrKy75Iz5toUuzdVCWvY__x'))
+        .pipe(gulp.dest(dirs.dist + '/img'));
+});
+
 
 gulp.task('minify-css', function () {
     gulp.src(dirs.src + '/css/app.css')

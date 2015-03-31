@@ -21,6 +21,8 @@ var sourceStream = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 
+var imagemin = require('gulp-imagemin');
+
 // ---------------------------------------------------------------------
 // | Helper tasks                                                      |
 // ---------------------------------------------------------------------
@@ -132,7 +134,8 @@ gulp.task('copy:misc', function () {
         // (other tasks will handle the copying of these files)
         '!' + dirs.src + '/css/main.css',
         '!' + dirs.src + '/index.html',
-        '!' + dirs.src + '/img/**/*.xcf',
+        // images task handle images copying
+        '!' + dirs.src + '/img/**',
         // browserify handle these files
         '!' + dirs.src + '/js/*.js'
 
@@ -180,13 +183,15 @@ gulp.task('browserify', bundle); // so you can run `gulp js` to build the file
 bundler.on('update', bundle); // on any dep update, runs the bundler
 bundler.on('log', gutil.log); // output build logs to terminal
 
-// var imagemin   = require('gulp-imagemin');
-//
-// gulp.task('images', function(){
-//     return gulp.src('./src/images/**')
-//         .pipe(imagemin())
-//         .pipe(gulp.dest('./build/images'));
-// });
+
+gulp.task('images', function() {
+    return gulp.src([
+            dirs.src + '/img/**',
+            '!' + dirs.src + '/img/**/*.xcf'
+        ])
+        .pipe(imagemin())
+        .pipe(gulp.dest(dirs.dist + '/img'));
+});
 
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
@@ -205,6 +210,7 @@ gulp.task('build', function (done) {
         ['clean', 'lint:js'],
         'browserify',
         'copy',
+        'images',
     done);
 });
 

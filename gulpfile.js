@@ -73,7 +73,10 @@ gulp.task('archive:zip', function (done) {
 gulp.task('clean', function (done) {
     require('del')([
         dirs.archive,
-        dirs.dist
+        dirs.dist + '/*',
+        dirs.dist + '/.*',
+        // не удаляем картинки, ибо они пережимаются задачей tinypng вручную
+        '!' + dirs.dist + '/img{,/**}'
     ], done);
 });
 
@@ -238,7 +241,8 @@ gulp.task('build', function (done) {
         ['clean', 'lint:js'],
         'browserify',
         'copy',
-        'images',
+        // не копируем картинки, ибо они пережимаются задачей tinypng вручную
+        // 'images',
         'minify-css',
     done);
 });

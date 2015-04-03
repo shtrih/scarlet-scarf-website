@@ -75,6 +75,7 @@ article .content {
 	top: 10vh;
 	margin: 0 10%;
 	padding: 10px 35px;
+	box-sizing: border-box;
 }
 
 .bg {
@@ -588,7 +589,7 @@ footer .content {
 }
 
 #donate form {
-	padding: 10px 30px;
+	padding: 10px 20px;
 }
 
 #donate form div {
@@ -824,6 +825,10 @@ footer .content {
 		width: 90vw;
 	}
 
+	#brief .content {
+		top: 765px;
+	}
+
 	#characters .content {
 		width: 92vw;
 		padding: 0 15px;
@@ -840,6 +845,14 @@ footer .content {
 }
 
 @media all and (max-width: 320px) {
+	nav.menu li a {
+		font-size: 1em;
+	}
+
+	#donate form {
+		padding: 10px 7px;
+	}
+
 	#brief p,
 	p {
 		font-size: .7em;

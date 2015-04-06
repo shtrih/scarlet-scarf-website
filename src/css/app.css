@@ -361,6 +361,8 @@ article:nth-of-type(1) > .bg {
 	display: block;
 	padding: 1em;
 	border-bottom: 1px solid rgba(62, 57, 71, 0.1);
+	color: #2d2d2d;
+	text-shadow: none;
 }
 .touch #cd-vertical-nav a span:first-child {
 	display: none;
@@ -483,7 +485,7 @@ footer .content {
 	width: 36%;
 }
 
-#downloads .content .misc img {
+#downloads .content img {
 	max-width: 100%;
 	margin: 10px 0 0 0;
 }
@@ -650,102 +652,6 @@ footer .content {
 		font-size: 1.1em;
 	}
 }
-
-@media all and (max-width: 650px) {
-	article .logo img {
-		width: 75vw;
-	}
-
-	p {
-		font-size: 1em;
-	}
-
-	h1 {
-		font-size: 1.4em;
-	}
-
-	article .content {
-		margin: 0 3%;
-	}
-
-	#characters .content {
-		width: 75vw;
-		bottom: 12vh;
-		top: auto;
-		margin: 0 6%;
-		padding: 0 28px;
-	}
-
-	#characters .bg {
-		background-position: 89% bottom, 50% top;
-	}
-
-	#downloads .content .links {
-		width: 100%;
-	}
-
-	#downloads .content .misc {
-		display: none;
-	}
-
-	footer .content {
-		float: none;
-		width: auto;
-	}
-}
-
-@media all and (max-width: 400px) {
-	article .content {
-		padding: 10px 8px;
-	}
-
-	article .logo img {
-		width: 90vw;
-	}
-
-	#brief .content {
-		top: 765px;
-	}
-
-	#characters .content {
-		width: 92vw;
-		padding: 0 15px;
-		margin: 0 1%;
-	}
-}
-
-@media all and (min-width: 410px) and (max-width: 650px) {
-	#downloads .content .links {
-		width: 330px;
-		margin: 0 auto;
-		float: none;
-	}
-}
-
-@media all and (max-width: 320px) {
-	nav.menu li a {
-		font-size: 1em;
-	}
-
-	#donate form {
-		padding: 10px 7px;
-	}
-
-	#brief p,
-	p {
-		font-size: .7em;
-	}
-
-	#downloads li {
-		width: auto;
-	}
-
-	footer {
-		padding: 5px 10px;
-	}
-}
-
-
 @media all and (max-width: 900px) and (max-height: 600px) {
 	#brief .content {
 		top: 945px;
@@ -798,3 +704,111 @@ footer .content {
 	}
 }
 
+
+@media all and (max-width: 650px) {
+	article .logo img {
+		width: 75vw;
+	}
+
+	p {
+		font-size: 1em;
+	}
+
+	h1 {
+		font-size: 1.4em;
+	}
+
+	article .content {
+		margin: 0 3%;
+	}
+
+	#characters .content {
+		width: 75vw;
+		bottom: 12vh;
+		top: auto;
+		margin: 0 6%;
+		padding: 0 28px;
+	}
+
+	#characters .bg {
+		background-position: 89% bottom, 50% top;
+	}
+
+	#downloads .content .links {
+		width: 100%;
+	}
+
+	#downloads .content .misc {
+		display: none;
+	}
+
+	footer .content {
+		float: none;
+		width: auto;
+	}
+}
+
+@media all and (min-width: 450px) and (max-width: 690px) {
+	#brief .content {
+		top: 855px;
+	}
+}
+
+@media all and (min-width: 410px) and (max-width: 650px) {
+	#downloads .content .links {
+		width: 330px;
+		margin: 0 auto;
+		float: none;
+	}
+}
+
+@media all and (min-width: 400px) and (max-width: 440px) {
+	#brief .content {
+		top: 710px;
+	}
+}
+
+@media all and (max-width: 400px) {
+	article .content {
+		padding: 10px 8px;
+	}
+
+	article .logo img {
+		width: 90vw;
+	}
+
+	#characters .content {
+		width: 92vw;
+		padding: 0 15px;
+		margin: 0 1%;
+	}
+}
+
+@media all and (min-width: 360px) and (max-width: 390px) {
+	#brief .content {
+		top: 765px;
+	}
+}
+
+@media all and (max-width: 320px) {
+	nav.menu li a {
+		font-size: 1em;
+	}
+
+	#donate form {
+		padding: 10px 7px;
+	}
+
+	#brief p,
+	p {
+		font-size: .7em;
+	}
+
+	#downloads li {
+		width: auto;
+	}
+
+	footer {
+		padding: 5px 10px;
+	}
+}

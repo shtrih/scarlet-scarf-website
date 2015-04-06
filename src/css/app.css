@@ -637,98 +637,6 @@ footer .content {
 
 /********** Media Queries *****************************************************/
 
-[class^=row-] .label-success {
-	display: none;
-}
-
-[class^=row-] > * {
-	margin: 6px;
-}
-
-@media all and (-webkit-min-device-pixel-ratio: 2) {
-	.row-1 .label-important {display: none;}
-	.row-1 .label-success {display: inline-block;}
-}
-
-/********** menu button ***************************/
-@media all and (min-width: 1em) and (max-width: 41em) {
-	.row-2 .label-important {display: none;}
-	.row-2 .label-success {display: inline-block;}
-}
-
-/********** 300px breakpoint ***************************/
-@media all and (min-width: 18.75em) {
-	.row-6 .label-important {display: none;}
-	.row-6 .label-success {display: inline-block;}
-}
-
-@media all and (min-width: 23em) {
-	.row-7 .label-important {display: none;}
-	.row-7 .label-success {display: inline-block;}
-}
-
-/********** 400px breakpoint ***************************/
-@media all and (min-width: 25em) {
-	.row-8 .label-important {display: none;}
-	.row-8 .label-success {display: inline-block;}
-}
-
-@media all and (min-width: 31em)  {
-	.row-9 .label-important {display: none;}
-	.row-9 .label-success {display: inline-block;}
-}
-
-/********** visible, horizontal navigation tabs ***************************/
-@media all and (min-width: 32em) {
-	.row-3 .label-important {display: none;}
-	.row-3 .label-success {display: inline-block;}
-}
-
-/********** 600px breakpoint ***************************/
-@media all and (min-width: 37.5em) {
-	.row-10 .label-important {display: none;}
-	.row-10 .label-success {display: inline-block;}
-}
-
-/********** tablet width, roughly ***************************/
-@media all and (min-width: 41em) {
-	.row-4 .label-important {display: none;}
-	.row-4 .label-success {display: inline-block;}
-}
-
-@media all and (min-width: 47em) {
-	.row-11 .label-important {display: none;}
-	.row-11 .label-success {display: inline-block;}
-}
-
-/********** 800px breakpoint ***************************/
-@media all and (min-width: 50em) {
-	.row-12 .label-important {display: none;}
-	.row-12 .label-success {display: inline-block;}
-}
-
-@media all and (min-width: 53em) {
-	.row-13 .label-important {display: none;}
-	.row-13 .label-success {display: inline-block;}
-}
-
-/********** 920px breakpoint ***************************/
-@media all and (min-width: 57.5em) {
-	.row-14 .label-important {display: none;}
-	.row-14 .label-success {display: inline-block;}
-}
-
-@media all and (min-width: 65em) {
-	.row-5 .label-important {display: none;}
-	.row-5 .label-success {display: inline-block;}
-}
-
-/********** 1044px breakpoint **************************/
-@media all and (min-width: 65.25em) {
-	.row-15 .label-important {display: none;}
-	.row-15 .label-success {display: inline-block;}
-}
-
 @media all and (min-width: 100em) {
 	body {
 		font-size: .95em;
@@ -736,36 +644,6 @@ footer .content {
 	.row-16 .label-important {display: none;}
 	.row-16 .label-success {display: inline-block;}
 }
-
-#queries-test {
-	z-index: 10;
-	margin: 0 1%;
-}
-
-[class^=label-] {
-	display: inline-block;
-	padding: 2px 4px;
-	font-size: 11.844px;
-	font-weight: bold;
-	line-height: 14px;
-	color: #fff;
-	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
-	white-space: nowrap;
-	vertical-align: baseline;
-	background-color: #999;
-	padding: 6px;
-	width: 40px;
-	text-align: center;
-}
-
-.label-success {
-	background-color: #468847;
-}
-
-.label-important {
-	background-color: #b94a48;
-}
-
 
 @media all and (max-width: 800px) {
 	#brief p {
@@ -874,30 +752,7 @@ footer .content {
 	}
 }
 
-@media all and (min-width: 41.1em) and (max-width: 50em) and (max-height: 720px) {
-	#characters .bg {
-		background-position: 89% 8%, 50% 0;
-	}
-	p {
-		font-size: 1em;
-	}
-
-	h1 {
-		font-size: 1.4em;
-		margin: 0.4em 0;
-	}
-
-	#characters .content {
-		width: 75vw;
-		bottom: 12vh;
-		margin: 0 6%;
-		top: auto;
-		padding: 0 26px;
-	}
-}
-
-/********** 800px breakpoint ***************************/
-@media all and (min-width: 41.1em) and (max-width: 50em) {
+@media all and (min-width: 650px) and (max-width: 800px) {
 
 	#characters .content {
 		bottom: 12vh;
@@ -921,4 +776,25 @@ footer .content {
 	}
 }
 
+@media all and (min-width: 650px) and (max-width: 800px) and (max-height: 720px) {
+	#characters .bg {
+		background-position: 89% 8%, 50% 0;
+	}
+	p {
+		font-size: 1em;
+	}
+
+	h1 {
+		font-size: 1.4em;
+		margin: 0.4em 0;
+	}
+
+	#characters .content {
+		width: 75vw;
+		bottom: 12vh;
+		margin: 0 6%;
+		top: auto;
+		padding: 0 26px;
+	}
+}
 

@@ -5,12 +5,23 @@ $(function () {
     });
 
     if (!($(document).width() <= 1024 || $(document).height() < 640)) {
+        $('li', '#characters').stellar({
+            // horizontalOffset: 40,
+            // verticalOffset: 0
+            hideDistantElements: false,
+            horizontalScrolling: true,
+            verticalScrolling: false,
+            responsive: false,
+            scrollProperty: 'position'
+        });
+
         $.stellar({
             // horizontalOffset: 40,
             // verticalOffset: 0
             hideDistantElements: true,
             horizontalScrolling: false,
-            responsive: true
+            responsive: false,
+            scrollProperty: 'scroll'
         });
     }
 
@@ -52,7 +63,7 @@ $(function () {
 
     $('.carousel ul').anoSlide({
         items: 1,
-        speed: 500,
+        speed: 900,
         prev: 'a.prev',
         next: 'a.next',
         // lazy: true,

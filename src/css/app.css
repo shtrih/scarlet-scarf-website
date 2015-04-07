@@ -476,7 +476,6 @@ footer .content {
 }
 
 #downloads .bg {
-	height: 2500px;
 	background-image: url('../img/downloads.jpg');
 }
 
@@ -503,7 +502,7 @@ footer .content {
 
 #downloads .content img {
 	max-width: 100%;
-	margin: 10px 0 0 0;
+	margin: 10px 0;
 }
 
 #downloads ul {

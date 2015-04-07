@@ -4,7 +4,7 @@ $(function () {
         easing:'easeInOutCirc'
     });
 
-    if (!($(document).width() <= 1024 || $(document).height() < 640)) {
+    if (!($(document).width() < 1024 || $(document).height() < 640)) {
         $('li', '#characters').stellar({
             // horizontalOffset: 40,
             // verticalOffset: 0
@@ -23,6 +23,8 @@ $(function () {
             responsive: false,
             scrollProperty: 'scroll'
         });
+
+        $('.bg', '#downloads').css('height', '2500px');
     }
 
     var navigationBlock = $('#cd-vertical-nav'),
@@ -34,8 +36,8 @@ $(function () {
         var updateNavigation = function () {
             contentSections.each(function () {
                 var $this = $(this),
-                    anchor = $('a[name]', $this),
-                    activeSection = $('a[href="#' + anchor.attr('name') + '"]', navigationBlock).data('number') - 1
+                    id = $this.attr('id'),
+                    activeSection = $('a[href="#' + id + '"]', navigationBlock).data('number') - 1
                 ;
 
                 if (($this.offset().top - $(window).height() / 2 < $(window).scrollTop()) && ($this.offset().top + $this.height() - $(window).height() / 2 > $(window).scrollTop())) {

@@ -14,8 +14,11 @@ var pkg = require('./package.json');
 var dirs = pkg['h5bp-configs'].directories;
 
 var browserify = require('browserify');
-var watchify = require('watchify');
-var bundler = watchify(browserify(watchify.args));
+var plumber = require('gulp-plumber');
+var plumberOnError = function(err) {
+    gutil.log(err.message);
+    this.emit('end');
+};
 var sourcemaps = require('gulp-sourcemaps');
 var sourceStream = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -75,7 +78,8 @@ gulp.task('clean', function (done) {
         dirs.archive,
         dirs.dist + '/*',
         dirs.dist + '/.*',
-        // не удаляем картинки, ибо они пережимаются задачей tinypng вручную
+        // не удаляем картинки, ибо они пережимаются задачей tinypng вручную (ибо у них лимит пережатий в 500 картинок,
+        // да и операция долгая)
         '!' + dirs.dist + '/img{,/**}'
     ], done);
 });
@@ -145,7 +149,8 @@ gulp.task('copy:misc', function () {
         // images task handle images copying
         '!' + dirs.src + '/img/**',
         // browserify handle these files
-        '!' + dirs.src + '/js/*.js'
+        '!' + dirs.src + '/js/*.js',
+        '!' + dirs.src + '/doc/**'
 
     ], {
 
@@ -162,18 +167,19 @@ gulp.task('copy:normalize', function () {
 
 gulp.task('lint:js', function () {
     return gulp.src([
-        'gulpfile.js',
-        dirs.src + '/js/*.js',
-        dirs.test + '/*.js'
-    ]).pipe(plugins.jscs())
-      .pipe(plugins.jshint())
-      .pipe(plugins.jshint.reporter('jshint-stylish'))
-      .pipe(plugins.jshint.reporter('fail'));
+            'gulpfile.js',
+            dirs.src + '/js/*.js',
+            dirs.test + '/*.js'
+        ])
+        .pipe(plumber({ errorHandler: plumberOnError }))
+        .pipe(plugins.jscs())
+        .pipe(plugins.jshint())
+        .pipe(plugins.jshint.reporter('jshint-stylish'))
+        .pipe(plugins.jshint.reporter('fail'));
 });
 
-// https://github.com/gulpjs/gulp/blob/master/docs/recipes/fast-browserify-builds-with-watchify.md
-var bundle = function() {
-    return bundler
+gulp.task('browserify', function () {
+    return browserify({ debug: true })
         .add('./' + dirs.src + '/js/app.js')
         .bundle()
         // log errors if they happen
@@ -185,12 +191,24 @@ var bundle = function() {
         .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(dirs.dist + '/js/'));
+});
+
+var logMsg = function(event) {
+    gutil.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 };
 
-gulp.task('browserify', bundle); // so you can run `gulp js` to build the file
-bundler.on('update', bundle); // on any dep update, runs the bundler
-bundler.on('log', gutil.log); // output build logs to terminal
-
+gulp
+    .watch(dirs.src + '/index.html', ['copy:index.html'])
+    .on('change', logMsg)
+;
+gulp
+    .watch(dirs.src + '/css/*.css', ['minify-css', 'copy:index.html'])
+    .on('change', logMsg)
+;
+gulp
+    .watch(dirs.src + '/js/**/*.js', ['lint:js', 'browserify', 'copy:index.html'])
+    .on('change', logMsg)
+;
 
 gulp.task('images', function() {
     return gulp.src([
@@ -213,6 +231,7 @@ gulp.task('tinypng', function() {
 
 gulp.task('minify-css', function () {
     gulp.src(dirs.src + '/css/app.css')
+        .pipe(plumber({ errorHandler: plumberOnError }))
         .pipe(plugins.rename('app.min.css'))
         .pipe(sourcemaps.init())
         .pipe(autoprefixer({

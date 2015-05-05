@@ -19,6 +19,9 @@ var plumberOnError = function(err) {
     gutil.log(err.message);
     this.emit('end');
 };
+var logMsg = function(event) {
+    gutil.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+};
 var sourcemaps = require('gulp-sourcemaps');
 var sourceStream = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
@@ -193,22 +196,20 @@ gulp.task('browserify', function () {
         .pipe(gulp.dest(dirs.dist + '/js/'));
 });
 
-var logMsg = function(event) {
-    gutil.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-};
-
-gulp
-    .watch(dirs.src + '/index.html', ['copy:index.html'])
-    .on('change', logMsg)
-;
-gulp
-    .watch(dirs.src + '/css/*.css', ['minify-css', 'copy:index.html'])
-    .on('change', logMsg)
-;
-gulp
-    .watch(dirs.src + '/js/**/*.js', ['lint:js', 'browserify', 'copy:index.html'])
-    .on('change', logMsg)
-;
+gulp.task('watch', function() {
+    gulp
+        .watch(dirs.src + '/index.html', ['copy:index.html'])
+        .on('change', logMsg)
+    ;
+    gulp
+        .watch(dirs.src + '/css/*.css', ['minify-css', 'copy:index.html'])
+        .on('change', logMsg)
+    ;
+    gulp
+        .watch(dirs.src + '/js/**/*.js', ['lint:js', 'browserify', 'copy:index.html'])
+        .on('change', logMsg)
+    ;
+});
 
 gulp.task('images', function() {
     return gulp.src([
@@ -266,4 +267,4 @@ gulp.task('build', function (done) {
     done);
 });
 
-gulp.task('default', ['build']);
+gulp.task('default', ['build', 'watch']);

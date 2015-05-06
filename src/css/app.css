@@ -643,6 +643,15 @@ footer .content {
 	background: #ffd3c5;
 	box-shadow: inset 0 0 4px #6C0000;
 }
+
+#donate input[type=submit] {
+	cursor: pointer;
+}
+
+#donate input[type=submit]:hover {
+	background: #58555a;
+}
+
 #donate label {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;

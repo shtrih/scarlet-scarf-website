@@ -19,6 +19,19 @@
                 Пожалуйста, <a href="http://browsehappy.com/">обновите его или скачайте альтернативный</a>, чтобы улучшить качество вашего интернет-сёрфинга.</p>
         <![endif]-->
 
+        <style>
+            #info {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                background-color: rgba(0,0,0,0.5);
+                color: #fff;
+                padding: 20px;
+                z-index: 9999;
+            }
+        </style>
+        <div id="info">0</div>
+
 		<nav id="cd-vertical-nav">
 			<ul class="unstyled">
 				<li>
@@ -57,10 +70,14 @@
 
         <article id="header">
             <div class="bg"
-                 data-stellar-vertical-offset="0"
-                 data-stellar-ratio="0.2"></div>
+                 data-start="background-position:0px 0px;"
+                 data-top-bottom="background-position:0px 500px;"
+                 data-anchor-target="#header"></div>
 
-            <div class="logo">
+            <div class="logo"
+                 data-start="opacity:1;"
+                 data-25p-center-bottom="opacity:0;"
+                 data-anchor-target="#header">
                 <img src="img/scarlet-scarf.png" />
             </div>
 
@@ -75,22 +92,25 @@
 
         <article id="brief">
             <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="1000"
-                 data-stellar-ratio="0.9"></div>
+                 data-top="background-position:0px 0%"
+                 data-bottom="background-position:0px 100%;"
+                 data-anchor-target="#brief"></div>
             <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="-900"
-                 data-stellar-ratio="1.4"></div>
+                 data-top="top:110%"
+                 data-bottom="top:0%"
+                 data-anchor-target="#brief"></div>
             <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="-500"
-                 data-stellar-ratio="1.6"></div>
+                 data-top="top:150%"
+                 data-bottom="top:0%"
+                 data-anchor-target="#brief"></div>
             <a href="#header" class="nav-prev" title="Вверх"></a>
             <a href="#characters" class="nav-next" title="Вниз"></a>
             <a name="brief-anchor"></a>
 
-            <div class="content">
+            <div class="content"
+                 data-center="opacity:0"
+                 data-bottom="opacity:1"
+                 data-anchor-target="#brief">
                 <h1>Сюжет</h1>
                 <div class="text">
                     <p>В сонном, укутанном туманами городке Ройштадте зреет беда. В центральных, благопристойных кварталах стали заболевать добрые горожане — и их болезнь не известна ни ученым лекарям, ни братьям-санаторам*. На шее, груди и животе открываются трещины и больной истекает кровью, которая, засыхая, рисует на его теле бурую полосу.</p>
@@ -183,12 +203,19 @@
         </article>
 
         <article id="downloads">
-            <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="700"
-                 data-stellar-ratio="1.5"></div>
+            <!-- div class="bg"
+                 data-300-top="height:1500px; top:0%"
+                 data--400-bottom="height: 1500px; top:-80%"
+                 data-anchor-target="#downloads"></div -->
+            <img src="img/downloads.jpg"
+                 data-300-top="top:0%"
+                 data--400-bottom="top:-80%"
+                 data-anchor-target="#downloads" />
 
-            <div class="content">
+            <div class="content"
+                 data-bottom-top="opacity:0"
+                 data-top="opacity:1"
+                 data-anchor-target="#downloads">
                 <h1>Скачать</h1>
                 <div class="text">
 					<p>Скачать бесплатно, без смс.</p>

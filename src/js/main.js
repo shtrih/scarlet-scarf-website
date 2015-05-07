@@ -6,7 +6,6 @@
     });
 
     skrollr.init({
-        // skrollrBody: 'brief',
         smoothScrolling: false,
         forceHeight: false,
         // duration: 100,

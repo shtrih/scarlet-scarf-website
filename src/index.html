@@ -57,10 +57,14 @@
 
         <article id="header">
             <div class="bg"
-                 data-stellar-vertical-offset="0"
-                 data-stellar-ratio="0.2"></div>
+                 data-start="top:0%"
+                 data-top-bottom="top:50%"
+                 data-anchor-target="#header"></div>
 
-            <div class="logo">
+            <div class="logo"
+                 data-start="opacity:1"
+                 data-35p-center-bottom="opacity:0"
+                 data-anchor-target="#header">
                 <img src="img/scarlet-scarf.png" />
             </div>
 
@@ -75,22 +79,25 @@
 
         <article id="brief">
             <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="1000"
-                 data-stellar-ratio="0.9"></div>
+                 data-top="background-position:0px 0%"
+                 data-bottom="background-position:0px 100%"
+                 data-anchor-target="#brief"></div>
             <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="-900"
-                 data-stellar-ratio="1.4"></div>
+                 data-top="top:15%"
+                 data-bottom="top:0%"
+                 data-anchor-target="#brief"></div>
             <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="-500"
-                 data-stellar-ratio="1.6"></div>
+                 data-top="top:10%"
+                 data-bottom="top:0%"
+                 data-anchor-target="#brief"></div>
             <a href="#header" class="nav-prev" title="Вверх"></a>
             <a href="#characters" class="nav-next" title="Вниз"></a>
             <a name="brief-anchor"></a>
 
-            <div class="content">
+            <div class="content"
+                 data-center="opacity:0"
+                 data-bottom="opacity:1"
+                 data-anchor-target="#brief">
                 <h1>Сюжет</h1>
                 <div class="text">
                     <p>В сонном, укутанном туманами городке Ройштадте зреет беда. В центральных, благопристойных кварталах стали заболевать добрые горожане — и их болезнь не известна ни ученым лекарям, ни братьям-санаторам. На шее, груди и животе открываются трещины и больной истекает кровью, которая, засыхая, рисует на его теле бурую полосу.</p>
@@ -105,16 +112,16 @@
             <a class="prev"></a>
             <ul>
                 <li>
+                    <div class="bg"></div>
                     <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-ratio="0.5"></div>
-                    <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-ratio="-0.2"></div>
+                         data-100p-top="left:100%"
+                         data-bottom="left:0%"
+                         data-anchor-target="#characters"></div>
 
                     <div class="content"
-                         data-stellar-offset-parent="true"
-                         data-stellar-ratio="1.2">
+                         data-100p-top="left:-100%"
+                         data-bottom="left:0%"
+                         data-anchor-target="#characters">
                         <h1>Силь</h1>
                         <div class="text">
                             <p>Лукавая и насмешливая бродяжка, играющая с листьями в карантинном квартале. Кажется, она
@@ -125,14 +132,8 @@
                     </div>
                 </li>
                 <li>
-                    <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-horizontal-offset="0"
-                         data-stellar-ratio="0.7"></div>
-                    <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-horizontal-offset="0"
-                         data-stellar-ratio="-0.2"></div>
+                    <div class="bg"></div>
+                    <div class="bg"></div>
 
                     <div class="content">
                         <h1>Анга</h1>
@@ -145,12 +146,8 @@
                     </div>
                 </li>
                 <li>
-                    <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-ratio="0.5"></div>
-                    <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-ratio="-0.2"></div>
+                    <div class="bg"></div>
+                    <div class="bg"></div>
 
                     <div class="content">
                         <h1>Рихард</h1>
@@ -162,12 +159,8 @@
                     </div>
                 </li>
                 <li>
-                    <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-ratio="0.5"></div>
-                    <div class="bg"
-                         data-stellar-offset-parent="true"
-                         data-stellar-ratio="-0.2"></div>
+                    <div class="bg"></div>
+                    <div class="bg"></div>
 
                     <div class="content">
                         <h1>Вайгер</h1>
@@ -184,11 +177,18 @@
 
         <article id="downloads">
             <div class="bg"
-                 data-stellar-offset-parent="true"
-                 data-stellar-vertical-offset="700"
-                 data-stellar-ratio="1.5"></div>
+                 data-300-top="height:100%; background-position:50% 0%"
+                 data--400-bottom="height:100%; background-position:50% 100%"
+                 data-anchor-target="#downloads"></div>
+            <!--<img src="img/downloads.jpg"-->
+                 <!--data-300-top="top:0%"-->
+                 <!--data--400-bottom="top:-80%"-->
+                 <!--data-anchor-target="#downloads" />-->
 
-            <div class="content">
+            <div class="content"
+                 data-bottom-top="top:50vh"
+                 data-top="top:10vh"
+                 data-anchor-target="#downloads">
                 <h1>Скачать</h1>
                 <div class="text">
                     <p></p>

@@ -477,12 +477,18 @@ footer .content {
 
 #downloads .bg {
 	background-image: url('../img/downloads.jpg');
+	background-position: 50% 0;
 }
 
+#downloads > img {
+	width: 100%;
+	position: absolute;
+}
 
 #downloads {
 	height: 900px;
 	z-index: 1;
+	position: relative;
 }
 
 #downloads .content {

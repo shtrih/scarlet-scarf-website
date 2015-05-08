@@ -99,52 +99,52 @@ article:nth-of-type(1) > .bg {
  * Carousel
  */
 
-.carousel > ul {
+#characters > ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
 
-.carousel ul > li {
+#characters ul > li {
 	margin: 0;
 	padding: 0;
 }
 
-.carousel ul > li > .bg:nth-of-type(1) {
+#characters ul > li > .bg:nth-of-type(1) {
 	background-size: cover;
 }
 
-.carousel ul > li > .bg:nth-of-type(2) {
+#characters ul > li > .bg:nth-of-type(2) {
 	position: absolute;
 }
 
-.carousel ul > li:nth-child(1) > .bg:nth-of-type(1) {
+#characters ul > li:nth-child(1) > .bg:nth-of-type(1) {
 	background-image: url('../img/characters/sil%20background.png');
 }
-.carousel ul > li:nth-child(1) > .bg:nth-of-type(2) {
+#characters ul > li:nth-child(1) > .bg:nth-of-type(2) {
 	background-image: url('../img/characters/sil%20sprite.png');
 }
-.carousel ul > li:nth-child(2) > .bg:nth-of-type(1) {
+#characters ul > li:nth-child(2) > .bg:nth-of-type(1) {
 	background-image: url('../img/characters/anga%20background.png');
 }
-.carousel ul > li:nth-child(2) > .bg:nth-of-type(2) {
+#characters ul > li:nth-child(2) > .bg:nth-of-type(2) {
 	background-image: url('../img/characters/anga%20sprite.png');
 }
-.carousel ul > li:nth-child(3) > .bg:nth-of-type(1) {
+#characters ul > li:nth-child(3) > .bg:nth-of-type(1) {
 	background-image: url('../img/characters/rihard%20background.png');
 }
-.carousel ul > li:nth-child(3) > .bg:nth-of-type(2) {
+#characters ul > li:nth-child(3) > .bg:nth-of-type(2) {
 	background-image: url('../img/characters/rihard%20sprite.png');
 }
-.carousel ul > li:nth-child(4) > .bg:nth-of-type(1) {
+#characters ul > li:nth-child(4) > .bg:nth-of-type(1) {
 	background-image: url('../img/characters/waiger%20background.png');
 }
-.carousel ul > li:nth-child(4) > .bg:nth-of-type(2) {
+#characters ul > li:nth-child(4) > .bg:nth-of-type(2) {
 	background-image: url('../img/characters/waiger%20sprite.png');
 }
 
-.carousel .next,
-.carousel .prev {
+#characters .next,
+#characters .prev {
 	display: none;
 	width: 56px;
 	height: 56px;
@@ -156,24 +156,24 @@ article:nth-of-type(1) > .bg {
 	cursor: pointer;
 }
 
-.carousel .prev {
+#characters .prev {
 	margin-left: -60px;
 	background: url(../img/cleft.png) 0 0 no-repeat;
 }
 
-.carousel .next {
+#characters .next {
 	margin-right: -60px;
 	background: url(../img/cright.png) 0 0 no-repeat;
 }
 
-.carousel {
+#characters {
 	position: relative;
 	min-height: 20px;
 	height: 100vh !important;
 	background: url(../js/vendor/anoslide/images/loader.gif) center center no-repeat;
 }
 
-.carousel > ul > li > .bg {
+#characters > ul > li > .bg {
 	height: 100vh;
 	position: relative;
 	background-repeat: no-repeat, no-repeat;
@@ -182,12 +182,12 @@ article:nth-of-type(1) > .bg {
 	background-attachment: scroll;
 }
 
-.carousel .paging {
+#characters .paging {
 	position: absolute;
 	z-index: 9998;
 }
 
-.carousel .paging > a {
+#characters .paging > a {
 	display: block;
 	cursor: pointer;
 	width: 40px;
@@ -196,9 +196,25 @@ article:nth-of-type(1) > .bg {
 	background: url(../js/vendor/anoslide/images/dots.png) 0 -40px no-repeat;
 }
 
-.carousel .paging > a:hover,
-.carousel .paging > a.current {
+#characters .paging > a:hover,
+#characters .paging > a.current {
 	background: url(../js/vendor/anoslide/images/dots.png) 0 0 no-repeat;
+}
+
+.no-js #characters ul {
+	overflow: hidden;
+	overflow-x: scroll;
+	white-space: nowrap;
+}
+
+.no-js #characters li {
+	display: inline-block;
+	white-space: normal;
+	position: relative;
+}
+
+.no-js #characters li .bg {
+	width: 100vw;
 }
 
 /**
@@ -209,15 +225,16 @@ article:nth-of-type(1) > .bg {
  * Navigation
  */
 
-.no-js #cd-vertical-nav {
+/*.no-js #cd-vertical-nav {
 	display:none;
-}
+}*/
 
 /* No Touch devices */
 .cd-nav-trigger {
 	display: none;
 }
 
+.no-js #cd-vertical-nav,
 .no-touch #cd-vertical-nav {
 	position: fixed;
 	right: 40px;
@@ -230,20 +247,24 @@ article:nth-of-type(1) > .bg {
 	transform: translateY(-50%);
 	z-index: 100;
 }
+.no-js    #cd-vertical-nav li,
 .no-touch #cd-vertical-nav li {
 	text-align: right;
 }
+.no-js    #cd-vertical-nav a,
 .no-touch #cd-vertical-nav a {
 	display: inline-block;
 	/* prevent weird movements on hover when you use a CSS3 transformation - webkit browsers */
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
+.no-js    #cd-vertical-nav a:after,
 .no-touch #cd-vertical-nav a:after {
 	content: "";
 	display: table;
 	clear: both;
 }
+.no-js    #cd-vertical-nav a span,
 .no-touch #cd-vertical-nav a span {
 	display: inline-block;
 	float: right;
@@ -253,6 +274,7 @@ article:nth-of-type(1) > .bg {
 	-o-transform: scale(0.6);
 	transform: scale(0.6);
 }
+.no-js    #cd-vertical-nav a:hover span,
 .no-touch #cd-vertical-nav a:hover span {
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
@@ -260,12 +282,14 @@ article:nth-of-type(1) > .bg {
 	-o-transform: scale(1);
 	transform: scale(1);
 }
+.no-js    #cd-vertical-nav a:hover .cd-label,
 .no-touch #cd-vertical-nav a:hover .cd-label {
 	opacity: 1;
 }
 .no-touch #cd-vertical-nav a.is-selected .cd-dot {
 	background-color: white;
 }
+.no-js    #cd-vertical-nav .cd-dot,
 .no-touch #cd-vertical-nav .cd-dot {
 	position: relative;
 	top: 8px;
@@ -282,6 +306,7 @@ article:nth-of-type(1) > .bg {
 	-o-transform-origin: 50% 50%;
 	transform-origin: 50% 50%;
 }
+.no-js    #cd-vertical-nav .cd-label,
 .no-touch #cd-vertical-nav .cd-label {
 	position: relative;
 	margin-right: 10px;
@@ -479,12 +504,12 @@ footer .content {
 	background-image: url('../img/downloads.jpg');
 	background-position: 50% 0;
 }
-
+/*
 #downloads > img {
 	width: 100%;
 	position: absolute;
 }
-
+*/
 #downloads {
 	height: 900px;
 	z-index: 1;
@@ -673,8 +698,6 @@ footer .content {
 	body {
 		font-size: .95em;
 	}
-	.row-16 .label-important {display: none;}
-	.row-16 .label-success {display: inline-block;}
 }
 
 @media all and (max-width: 800px) {

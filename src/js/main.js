@@ -69,7 +69,7 @@
         navigationBlock.removeClass('open');
     });
 
-    $('.carousel ul').anoSlide({
+    $('ul', '#characters').anoSlide({
         items: 1,
         speed: 900,
         prev: 'a.prev',

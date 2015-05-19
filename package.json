@@ -73,8 +73,7 @@
         "jquery:$",
         "localscroll",
         "anoslide",
-        "skrollr:skrollr",
-        "plugins"
+        "skrollr:skrollr"
       ]
     }
   },

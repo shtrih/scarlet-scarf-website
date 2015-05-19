@@ -24,8 +24,14 @@ body a {
 	text-decoration: none;
 }
 
+#downloads .icon:hover + a,
 body a:hover {
 	color: #ffa034;
+}
+
+#downloads .icon:active + a,
+body a:active {
+	color: #a76821;
 }
 
 p {
@@ -496,13 +502,19 @@ footer .content {
 	margin-right: 4%;
 }
 
+footer .logo-ignis-sanat {
+	background: url('../img/ignis-sanat.png') no-repeat;
+	height: 100px;
+	width: 300px;
+}
+
 #characters {
 	z-index: 10;
 }
 
 #downloads .bg {
 	background-image: url('../img/downloads.jpg');
-	background-position: 50% 0;
+	background-position: 50% 80%;
 }
 /*
 #downloads > img {
@@ -594,6 +606,8 @@ footer .content {
 
 #brief .content {
 	top: 820px;
+	margin: 0 auto;
+	max-width: 720px;
 }
 
 #brief .bg:nth-of-type(1) {

@@ -125,22 +125,22 @@ article:nth-of-type(1) > .bg {
 }
 
 #characters ul > li:nth-child(1) > .bg:nth-of-type(1) {
-	background-image: url('../img/characters/sil%20background.png');
-}
-#characters ul > li:nth-child(1) > .bg:nth-of-type(2) {
-	background-image: url('../img/characters/sil%20sprite.png');
-}
-#characters ul > li:nth-child(2) > .bg:nth-of-type(1) {
-	background-image: url('../img/characters/anga%20background.png');
-}
-#characters ul > li:nth-child(2) > .bg:nth-of-type(2) {
-	background-image: url('../img/characters/anga%20sprite.png');
-}
-#characters ul > li:nth-child(3) > .bg:nth-of-type(1) {
 	background-image: url('../img/characters/rihard%20background.png');
 }
-#characters ul > li:nth-child(3) > .bg:nth-of-type(2) {
+#characters ul > li:nth-child(1) > .bg:nth-of-type(2) {
 	background-image: url('../img/characters/rihard%20sprite.png');
+}
+#characters ul > li:nth-child(2) > .bg:nth-of-type(1) {
+	background-image: url('../img/characters/sil%20background.png');
+}
+#characters ul > li:nth-child(2) > .bg:nth-of-type(2) {
+	background-image: url('../img/characters/sil%20sprite.png');
+}
+#characters ul > li:nth-child(3) > .bg:nth-of-type(1) {
+	background-image: url('../img/characters/anga%20background.png');
+}
+#characters ul > li:nth-child(3) > .bg:nth-of-type(2) {
+	background-image: url('../img/characters/anga%20sprite.png');
 }
 #characters ul > li:nth-child(4) > .bg:nth-of-type(1) {
 	background-image: url('../img/characters/waiger%20background.png');

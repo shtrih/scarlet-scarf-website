@@ -25,7 +25,7 @@
         target: '#characters ul',
         axis: 'x',
         hash: true,
-        easing:'easeOutQuint',
+        easing:'easeOutSine',
         duration: 900,
         done: function () {
             characterList[ slideIndex ].removeClass('animation-char-start');

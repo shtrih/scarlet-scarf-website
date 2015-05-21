@@ -1,4 +1,5 @@
 ;(function($, window, document, undefined) {
+    // Плавная прокрутка страницы по якорям, но не для ссылок .prev, .next, на которые обработчик вешается ниже
     $.localScroll({
         filter: ':not(.prev,.next)',
         hash: true,
@@ -6,14 +7,45 @@
         duration: 2000
     });
 
-    $('ul', '#characters').localScroll({
+    // Плавная прокрутка персонажей по якорям по горизонтали + css3-анимации
+    var characters = $('#characters'),
+        slideIndex = 0,
+        getSlideIndex = function (el) {
+            return Math.round(el.scrollLeft / $(window).width());
+        },
+        characterList = [],
+        charactersContent = $('.content', characters)
+    ;
+
+    $('li', characters).each(function () {
+        characterList.push($(this).find('.bg').last());
+    });
+
+    $('ul', characters).localScroll({
         target: '#characters ul',
         axis: 'x',
         hash: true,
         easing:'easeOutQuint',
-        duration: 900
+        duration: 900,
+        done: function () {
+            characterList[ slideIndex ].removeClass('animation-char-start');
+            charactersContent.eq(slideIndex).removeClass('animation-content-start');
+
+            slideIndex = getSlideIndex(this);
+        }
     });
 
+    // Стартуем css3-анимации, путём добавления соответствующих классов
+    $('.prev,.next', characters).on('click', function () {
+        var nextSlide = $(this).hasClass('prev') ? slideIndex - 1 : slideIndex + 1;
+
+        characterList[ nextSlide ].addClass('animation-char-start');
+        charactersContent.eq(nextSlide).addClass('animation-content-start');
+
+        return false;
+    });
+
+    // Инициализация плагина для создания эффекта «парралакса»
     skrollr.init({
         smoothScrolling: false,
         forceHeight: false,
@@ -42,6 +74,7 @@
     }).appendTo('body');
     */
 
+    // Меню навигации
     var navigationBlock = $('#cd-vertical-nav'),
         contentSections = $('article'),
         navigationItems = $('a', navigationBlock)

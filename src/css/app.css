@@ -186,6 +186,39 @@ article:nth-of-type(1) > .bg {
 	background-size: auto, cover;
 	background-attachment: scroll;
 }
+
+@keyframes char-move {
+	from {
+		transform: translateX(50%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.animation-char-start {
+	animation-name: char-move;
+	animation-duration: 0.8s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
+@keyframes content-move {
+	from {
+		transform: translateX(-50%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+.animation-content-start {
+	animation-name: content-move;
+	animation-duration: 0.8s;
+	animation-timing-function: ease-out;
+	animation-iteration-count: 1;
+}
+
 /*
 #characters .paging {
 	position: absolute;

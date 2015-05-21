@@ -54,7 +54,6 @@
     "localscroll": "./node_modules/jquery.localscroll/jquery.localScroll.min.js",
     "easing": "./node_modules/jquery.easing/jquery.easing.1.3.min.js",
     "plugins": "./src/js/plugins.js",
-    "anoslide": "./src/js/vendor/anoslide/js/jquery.anoslide.js",
     "main": "./src/js/main.js"
   },
   "browserify-shim": {
@@ -72,7 +71,6 @@
       "depends": [
         "jquery:$",
         "localscroll",
-        "anoslide",
         "skrollr:skrollr"
       ]
     }

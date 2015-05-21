@@ -88,8 +88,6 @@
                  data-bottom="top:0vh"
                  data--300-bottom="top:18vh"
                  data-anchor-target="#brief"></div>
-            <a href="#header" class="nav-prev" title="Вверх"></a>
-            <a href="#characters" class="nav-next" title="Вниз"></a>
             <a name="brief-anchor"></a>
 
             <div class="content"
@@ -107,9 +105,8 @@
 
         <article id="characters">
 
-            <a class="prev"></a>
             <ul>
-                <li>
+                <li id="sil">
                     <div class="bg"></div>
                     <div class="bg"
                          data-100p-top="left:100%"
@@ -128,8 +125,9 @@
                             </p>
                         </div>
                     </div>
+                    <a class="next" href="#anga"></a>
                 </li>
-                <li>
+                <li id="anga">
                     <div class="bg"></div>
                     <div class="bg"></div>
 
@@ -142,8 +140,10 @@
                             </p>
                         </div>
                     </div>
+                    <a class="prev" href="#sil"></a>
+                    <a class="next" href="#rihard"></a>
                 </li>
-                <li>
+                <li id="rihard">
                     <div class="bg"></div>
                     <div class="bg"></div>
 
@@ -155,8 +155,10 @@
                                 не принесли плодов. Впрочем сдаваться они не собираются – иначе весь город обречен.</p>
                         </div>
                     </div>
+                    <a class="prev" href="#anga"></a>
+                    <a class="next" href="#waiger"></a>
                 </li>
-                <li>
+                <li id="waiger">
                     <div class="bg"></div>
                     <div class="bg"></div>
 
@@ -168,9 +170,9 @@
                                 Мердок, силится отыскать способ победить неведомый мор, но пока тщетно. </p>
                         </div>
                     </div>
+                    <a class="prev" href="#rihard"></a>
                 </li>
             </ul>
-            <a class="next" data-next></a>
         </article>
 
         <article id="downloads">

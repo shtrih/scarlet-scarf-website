@@ -16,7 +16,7 @@ body {
 	letter-spacing: 1px;
 	text-shadow: 1px 1px black;
 	color: #ffc;
-	background: #111;
+	background: #000;
 }
 
 body a {
@@ -151,7 +151,6 @@ article:nth-of-type(1) > .bg {
 
 #characters .next,
 #characters .prev {
-	display: none;
 	width: 56px;
 	height: 56px;
 	position: absolute;
@@ -164,19 +163,19 @@ article:nth-of-type(1) > .bg {
 
 #characters .prev {
 	margin-left: -60px;
-	background: url(../img/cleft.png) 0 0 no-repeat;
+	background: url(../img/icons/cleft.png) 0 0 no-repeat;
 }
 
 #characters .next {
 	margin-right: -60px;
-	background: url(../img/cright.png) 0 0 no-repeat;
+	background: url(../img/icons/cright.png) 0 0 no-repeat;
 }
 
 #characters {
 	position: relative;
 	min-height: 20px;
 	height: 100vh !important;
-	background: url(../js/vendor/anoslide/images/loader.gif) center center no-repeat;
+	/*background: url(/loader.gif) center center no-repeat;*/
 }
 
 #characters > ul > li > .bg {
@@ -187,7 +186,7 @@ article:nth-of-type(1) > .bg {
 	background-size: auto, cover;
 	background-attachment: scroll;
 }
-
+/*
 #characters .paging {
 	position: absolute;
 	z-index: 9998;
@@ -206,20 +205,19 @@ article:nth-of-type(1) > .bg {
 #characters .paging > a.current {
 	background: url(../js/vendor/anoslide/images/dots.png) 0 0 no-repeat;
 }
-
-.no-js #characters ul {
+*/
+#characters ul {
 	overflow: hidden;
-	overflow-x: scroll;
 	white-space: nowrap;
 }
 
-.no-js #characters li {
+#characters li {
 	display: inline-block;
 	white-space: normal;
 	position: relative;
 }
 
-.no-js #characters li .bg {
+#characters li .bg {
 	width: 100vw;
 }
 
@@ -515,6 +513,7 @@ footer .logo-ignis-sanat {
 #downloads .bg {
 	background-image: url('../img/downloads.jpg');
 	background-position: 50% 80%;
+	background-size: auto;
 }
 /*
 #downloads > img {

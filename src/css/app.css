@@ -599,6 +599,12 @@ footer .logo-ignis-sanat {
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	margin-bottom: 10px;
+	filter: grayscale(100%);
+	transition: filter .5s;
+}
+
+#downloads .icon:hover {
+	filter: grayscale(0);
 }
 
 #downloads .icon.windows {

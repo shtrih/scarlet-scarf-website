@@ -2,12 +2,16 @@
 # The humans responsible & technology colophon
 
 # TEAM
+#    <name> -- <role> -- <twitter>
 
-    <name> -- <role> -- <twitter>
+    Roxy             -- программист
+    Пони             -- художник
+    Гильберт Бриссен -- сценарист
+    AI               -- вычитка английских текстов
 
 # THANKS
 
-    <name>
+    shtrih           -- разработка сайта
 
 # TECHNOLOGY COLOPHON
 

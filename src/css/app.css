@@ -333,7 +333,7 @@ article:nth-of-type(1) > .bg {
 	height: 12px;
 	width: 12px;
 	border-radius: 50%;
-	background-color: #d88683;
+	background-color: #D6311F;
 	-webkit-transition: -webkit-transform 0.2s, background-color 0.5s;
 	-moz-transition: -moz-transform 0.2s, background-color 0.5s;
 	transition: transform 0.2s, background-color 0.5s;
@@ -542,12 +542,25 @@ footer .logo-ignis-sanat {
 #characters {
 	z-index: 10;
 }
-
+/*
 #downloads .bg {
 	background-image: url('../img/downloads.jpg');
 	background-position: 50% 80%;
 	background-size: auto;
+}*/
+#downloads .bg {
+	background-position: center top;
+	background-attachment: fixed;
 }
+
+#downloads .bg:nth-child(1) {
+	background-image: url('../img/layers/4/4.1.jpg');
+}
+
+#downloads .bg:nth-child(2) {
+	background-image: url('../img/layers/4/4.0.jpg');
+}
+
 /*
 #downloads > img {
 	width: 100%;
@@ -672,9 +685,16 @@ footer .logo-ignis-sanat {
 }
 
 #donate .bg {
-	background-image: url('../img/8.jpg');
 	background-position: center top;
 	background-attachment: fixed;
+}
+
+#donate .bg:nth-child(1) {
+	background-image: url('../img/layers/3/3.1.jpg');
+}
+
+#donate .bg:nth-child(2) {
+	background-image: url('../img/layers/3/3.0.jpg');
 }
 
 #donate input,

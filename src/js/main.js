@@ -46,6 +46,7 @@
     });
 
     // Инициализация плагина для создания эффекта «парралакса»
+    /* globals skrollr */
     skrollr.init({
         smoothScrolling: false,
         forceHeight: false,
@@ -85,8 +86,8 @@
             contentSections.each(function () {
                 var $this = $(this),
                     id = $this.attr('id'),
-                    anchor_suffix = '-anchor',
-                    activeSection = $('a[href="#' + id + '"], a[href="#' + id + anchor_suffix + '"]', navigationBlock).data('number') - 1
+                    anchorSuffix = '-anchor',
+                    activeSection = $('a[href="#' + id + '"], a[href="#' + id + anchorSuffix + '"]', navigationBlock).data('number') - 1
                 ;
 
                 if (($this.offset().top - $(window).height() / 2 < $(window).scrollTop()) && ($this.offset().top + $this.height() - $(window).height() / 2 > $(window).scrollTop())) {

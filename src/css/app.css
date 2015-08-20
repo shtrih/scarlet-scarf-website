@@ -42,7 +42,7 @@ p {
 
 p:first-letter {
 	font-size: 2em;
-	color: #ff0005;
+	color: #D6311F;
 }
 
 h1 {
@@ -162,13 +162,21 @@ article:nth-of-type(1) > .bg {
 }
 
 #characters .prev {
-	margin-left: -60px;
-	background: url(../img/icons/cleft.png) 0 0 no-repeat;
+	margin-left: -80px;
+	background: url(../img/icons/carrows.png) 0 0 no-repeat;
+}
+
+#characters .prev:hover {
+	background-position: 0 -56px;
 }
 
 #characters .next {
-	margin-right: -60px;
-	background: url(../img/icons/cright.png) 0 0 no-repeat;
+	margin-right: -80px;
+	background: url(../img/icons/carrows.png) -56px 0 no-repeat;
+}
+
+#characters .next:hover {
+	background-position: -56px -56px;
 }
 
 #characters {
@@ -685,16 +693,9 @@ footer .logo-ignis-sanat {
 }
 
 #donate .bg {
+	background-image: url('../img/8.jpg');
 	background-position: center top;
 	background-attachment: fixed;
-}
-
-#donate .bg:nth-child(1) {
-	background-image: url('../img/layers/3/3.1.jpg');
-}
-
-#donate .bg:nth-child(2) {
-	background-image: url('../img/layers/3/3.0.jpg');
 }
 
 #donate input,

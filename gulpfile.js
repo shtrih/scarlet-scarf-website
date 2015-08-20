@@ -223,7 +223,8 @@ gulp.task('images', function() {
 gulp.task('tinypng', function() {
     return gulp.src([
             dirs.src + '/img/**',
-            '!' + dirs.src + '/img/**/*.xcf'
+            '!' + dirs.src + '/img/**/*.xcf',
+            '!' + dirs.src + '/img/**/*.psd'
         ])
         .pipe(tinypng('hXWmLf6S3OrKy75Iz5toUuzdVCWvY__x'))
         .pipe(gulp.dest(dirs.dist + '/img'));
